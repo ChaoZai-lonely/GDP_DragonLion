@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>醒狮的起源与发展 - 廣建龍獅團</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="../插件/js/tailwindcss.js"></script>
+    <!-- 引入Font Awesome图标 -->
+    <link rel="stylesheet" href="../插件/fontawesome/css/all.min.css">
+    <!-- 自定义Tailwind配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lionRed: '#D22030', // 醒狮红
+                        lionGold: '#FFC107', // 醒狮金
+                        lionBeige: '#F9F6F0', // 国潮米色背景
+                        lionDark: '#2D2A26', // 深色文字
+                    },
+                    fontFamily: {
+                        chinese: ['"李旭科书法"', 'sans-serif'], // 书法字体，适合标题
+                        sans: ['"方正吕建德字体简体"', 'sans-serif'], // 正文字体
+                        reading: ['"华康宋体W3"', '"方正清刻本悦宋简体"', 'serif'], // 阅读字体，更适合长文本
+                        fanti:['"华康钢笔体繁W2"', 'sans-serif'], // 繁体书法风格
+                        wenyue:['"汉仪小麦体简"', 'sans-serif'], // 现代简约字体
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- 自定义样式 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            .bg-cloud {
+                background-image: url('./1bab3a01efdb4195ae2581442dfeb5f6preview.jpeg~tplv-a9rns2rl98-image_pre_watermark_1_6b.png');
+                background-size: cover;
+                background-position: center;
+                background-blend-mode: overlay;
+            }
+            .lion-hover {
+                transition: transform 0.3s ease;
+            }
+            .lion-hover:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* 定义字体 */
+        @font-face {
+            font-family: '李旭科书法';
+            src: url('../配套字体/fonts/李旭科书法1.4_0.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: '方正吕建德字体简体';
+            src: url('../配套字体/fonts/方正吕建德字体简体_0.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: '华康宋体W3';
+            src: url('../配套字体/fonts/华康宋体W3.TTF') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: '华康钢笔体繁W2';
+            src: url('../配套字体/fonts/华康钢笔体繁W2.TTC') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: '汉仪小麦体简';
+            src: url('../配套字体/fonts/汉仪小麦体简.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body class="bg-lionBeige font-sans text-lionDark">
+    <!-- 导航栏 -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
+        <nav class="shadow-md py-1 px-4 md:px-8 relative overflow-hidden transition-all duration-500 ease-in-out" style="background-image: url('../图片/bj.png'); background-size: cover; background-position: center;">
+            <div class="absolute inset-0 bg-white/10"></div>
+            <div class="container mx-auto flex justify-between items-center relative z-10">
+                <!-- Logo -->
+                <a href="../gjlst.html" class="flex items-center gap-3">
+                    <img src="../图片/logo.jpg" alt="醒狮Logo" class="w-20 h-20 rounded-full transition-all duration-500 ease-in-out">
+                    <span class="font-family:chinese text-5xl text-lionRed transition-all duration-500 ease-in-out">廣建龍獅團</span>
+                </a>
+                <!-- 返回主页按钮 -->
+                <div class="font-reading flex items-center gap-4">
+                    <a href="../gjlst.html#culture" class="inline-flex items-center gap-2 bg-lionRed hover:bg-lionGold text-white font-bold py-2 px-4 rounded-full transition-all duration-500 ease-in-out">
+                        <i class="fas fa-arrow-left"></i>
+                        返回主页
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+   
+
+    <!-- 起源传说 -->
+    <section id="origin" class="py-20 px-4 md:px-8">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-16">
+                <h2 class="font-chinese text-5xl text-lionRed mb-6"><br>起源传说</h2>
+                <div class="w-32 h-1 bg-lionGold mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 font-reading leading-relaxed">
+                    醒狮的起源有着多种美丽的传说，每一种都承载着中华民族的文化记忆
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-xl shadow-lg p-8 lion-hover">
+                    <div class="text-lionGold text-5xl mb-6 text-center">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="text-2xl font-reading mb-4 text-center text-lionRed">驱邪避灾说</h3>
+                    <div class="text-lg text-gray-700 font-reading leading-relaxed space-y-3">
+                        <p>相传南北朝时期，广州出现了一头凶猛的独角兽，每年除夕之夜都会下山食人。百姓惊恐万分，无法摆脱困扰。</p>
+                        <p>后来人们发现独角兽害怕红色和响声，便用竹篾扎成狮头，染成红色，敲锣打鼓舞动狮头，最终成功将其吓跑。从此舞狮驱邪的习俗便流传开来。</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8 lion-hover">
+                    <div class="text-lionGold text-5xl mb-6 text-center">
+                        <i class="fas fa-king"></i>
+                    </div>
+                    <h3 class="text-2xl font-reading mb-4 text-center text-lionRed">唐皇梦狮说</h3>
+                    <div class="text-lg text-gray-700 font-reading leading-relaxed space-y-3">
+                        <p>唐明皇李隆基梦见月光下一头金光闪闪的雄狮在庭院中起舞，醒来后命令工匠按照梦境中的样子制作狮头。</p>
+                        <p>从此舞狮成为宫廷庆典的重要表演，后来流传到民间，结合当地的武术和舞蹈风格，逐渐发展成各具特色的舞狮流派。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-lionRed/10 to-lionGold/10 rounded-xl p-8 border-2 border-lionGold/30">
+                <h3 class="text-2xl font-reading mb-4 text-center text-lionRed">佛山传说</h3>
+                <div class="text-lg text-gray-700 font-reading leading-relaxed">
+                    <p class="mb-3">明代佛山地区发生瘟疫，乡亲们束手无策。一天夜里，一位老者托梦告诉大家，只要制作金毛雄狮在村中舞动，就能驱除瘟疫。</p>
+                    <p>村民们立刻行动，果然狮舞过后，疫情逐渐消退。从此佛山舞狮风气大盛，佛山也成为了南狮的重要发源地之一。</p>
+                </div>
+            </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- 历史发展 -->
+    <section id="development" class="py-20 px-4 md:px-8 relative" style="background-image: url('../图片/ccbj.jpeg'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-lionDark/5"></div>
+        <div class="relative z-10">
+        <div class="container mx-auto max-w-5xl">
+            <div class="text-center mb-16">
+                <h2 class="font-chinese text-5xl text-lionRed mb-6">历史发展</h2>
+                <div class="w-32 h-1 bg-lionGold mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 font-reading font-bold leading-relaxed">
+                    从宫廷到民间，从祈福到艺术，醒狮文化的历史演变
+                </p>
+            </div>
+
+            <!-- 历史时间轴 -->
+            <div class="relative">
+                <!-- 时间轴主线 -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-lionGold"></div>
+
+                <!-- 唐代 -->
+                <div class="relative mb-12">
+                    <div class="flex items-center">
+                        <div class="w-full md:w-1/2 md:pr-8 text-right">
+                            <div class="bg-white rounded-lg shadow-lg p-6 lion-hover">
+                                <h3 class="text-2xl font-bold mb-3 text-lionRed">唐代（618-907）</h3>
+                                <h4 class="text-xl font-reading mb-2 text-lionGold">宫廷艺术的诞生</h4>
+                                <p class="text-lg text-gray-700 font-reading leading-relaxed">
+                                    舞狮作为宫廷庆典表演出现，成为"五方狮子舞"的重要组成部分。主要用于宫廷节庆和外交活动。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-lionRed rounded-full border-4 border-white"></div>
+                        <div class="w-full md:w-1/2 md:pl-8"></div>
+                    </div>
+                </div>
+
+                <!-- 宋元 -->
+                <div class="relative mb-12">
+                    <div class="flex items-center">
+                        <div class="w-full md:w-1/2 md:pr-8"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-lionRed rounded-full border-4 border-white"></div>
+                        <div class="w-full md:w-1/2 md:pl-8">
+                            <div class="bg-white rounded-lg shadow-lg p-6 lion-hover">
+                                <h3 class="text-2xl font-bold mb-3 text-lionRed">宋元时期（960-1368）</h3>
+                                <h4 class="text-xl font-reading mb-2 text-lionGold">走向民间</h4>
+                                <p class="text-lg text-gray-700 font-reading leading-relaxed">
+                                    舞狮从宫廷传播到民间，与当地的武术、音乐、戏剧相结合，开始出现地域特色。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 明清 -->
+                <div class="relative mb-12">
+                    <div class="flex items-center">
+                        <div class="w-full md:w-1/2 md:pr-8 text-right">
+                            <div class="bg-white rounded-lg shadow-lg p-6 lion-hover">
+                                <h3 class="text-2xl font-bold mb-3 text-lionRed">明清时期（1368-1912）</h3>
+                                <h4 class="text-xl font-reading mb-2 text-lionGold">南狮的形成</h4>
+                                <p class="text-lg text-gray-700 font-reading leading-relaxed">
+                                    岭南地区舞狮艺术成熟，形成以佛山、广州为代表的南狮风格，融合了洪门武术元素，动作威猛，鼓乐激昂。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-lionRed rounded-full border-4 border-white"></div>
+                        <div class="w-full md:w-1/2 md:pl-8"></div>
+                    </div>
+                </div>
+
+                <!-- 近现代 -->
+                <div class="relative mb-12">
+                    <div class="flex items-center">
+                        <div class="w-full md:w-1/2 md:pr-8"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-lionRed rounded-full border-4 border-white"></div>
+                        <div class="w-full md:w-1/2 md:pl-8">
+                            <div class="bg-white rounded-lg shadow-lg p-6 lion-hover">
+                                <h3 class="text-2xl font-bold mb-3 text-lionRed">近现代（1912至今）</h3>
+                                <h4 class="text-xl font-reading mb-2 text-lionGold">传承与创新</h4>
+                                <p class="text-lg text-gray-700 font-reading leading-relaxed">
+                                    2006年南狮列入国家级非物质文化遗产名录。现代醒狮在传统基础上创新发展，成为中华文化的重要象征。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- 文化内涵 -->
+    <section id="culture" class="py-20 px-4 md:px-8">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-16">
+                <h2 class="font-reading text-5xl text-lionRed mb-6">文化内涵</h2>
+                <div class="w-32 h-1 bg-lionGold mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 font-reading leading-relaxed">
+                    醒狮不仅是一种表演艺术，更承载着深厚的文化寓意
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-6 lion-hover">
+                    <div class="text-lionGold text-4xl mb-4 text-center">
+                        <i class="fas fa-yin-yang"></i>
+                    </div>
+                    <h3 class="text-xl font-reading mb-3 text-center text-lionRed">阴阳平衡</h3>
+                    <p class="text-lg text-gray-700 font-reading leading-relaxed">
+                        醒狮结合刚柔并济，狮头的威猛与狮尾的灵动，体现了中国传统文化中阴阳平衡的哲学思想。
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 lion-hover">
+                    <div class="text-lionGold text-4xl mb-4 text-center">
+                        <i class="fas fa-hands-praying"></i>
+                    </div>
+                    <h3 class="text-xl font-reading mb-3 text-center text-lionRed">祈福纳祥</h3>
+                    <p class="text-lg text-gray-700 font-reading leading-relaxed">
+                        醒狮表演寓意驱邪避灾、招财纳福，是节庆祈福的重要民俗活动，寄托着人们对美好生活的向往。
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 lion-hover">
+                    <div class="text-lionGold text-4xl mb-4 text-center">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-reading mb-3 text-center text-lionRed">团结协作</h3>
+                    <p class="text-lg text-gray-700 font-reading leading-relaxed">
+                        醒狮表演需要多人密切配合，体现了中华民族团结协作、同心同德的精神品质。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 狮头颜色寓意 -->
+            <div class="mt-16 bg-gradient-to-r from-lionRed/10 to-lionGold/10 rounded-xl p-8 border-2 border-lionGold/30">
+                <h3 class="text-2xl font-reading mb-6 text-center text-lionRed">狮头颜色寓意</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-yellow-500 rounded-full mx-auto mb-3 flex items-center justify-center text-white text-4xl font-bold">刘</div>
+                        <h4 class="text-lg font-reading text-lionRed mb-2">刘备狮（黄色）</h4>
+                        <p class="text-gray-700 font-reading">象征仁义、忠厚，是德高望重的代表</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-red-600 rounded-full mx-auto mb-3 flex items-center justify-center text-white text-4xl font-bold">关</div>
+                        <h4 class="text-lg font-reading text-lionRed mb-2">关羽狮（红色）</h4>
+                        <p class="text-gray-700 font-reading">象征忠义、勇猛，是义薄云天的代表</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-black rounded-full mx-auto mb-3 flex items-center justify-center text-white text-4xl font-bold">张</div>
+                        <h4 class="text-lg font-reading text-lionRed mb-2">张飞狮（黑色）</h4>
+                        <p class="text-gray-700 font-reading">象征勇猛、威武，是所向披靡的代表</p>
+                    </div>
+                </div>
+            </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- 传承发展 -->
+    <section id="inheritance" class="py-20 px-4 md:px-8 bg-lionDark/5">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-16">
+                <h2 class="font-chinese text-5xl text-lionRed mb-6">传承发展</h2>
+                <div class="w-32 h-1 bg-lionGold mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 font-reading leading-relaxed">
+                    非遗保护与现代传承，让千年醒狮焕发新的生命力
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="../图片/R-C.webp" alt="非遗进校园" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-lionRed">非遗进校园</h3>
+                        <p class="text-lg text-gray-700 font-reading leading-relaxed">
+                            通过开设醒狮课程、组建学生社团，让年轻一代亲身体验醒狮文化，培养传承人才，确保这项千年技艺薪火相传。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="../图片/R-C.jpg" alt="比赛竞技" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-lionRed">竞技发展</h3>
+                        <p class="text-lg text-gray-700 font-reading leading-relaxed">
+                            各类醒狮比赛和锦标赛的举办，推动了醒狮技艺的标准化和专业化，让传统技艺在现代竞技舞台上焕发活力。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-lionRed text-white rounded-xl p-8 text-center">
+                <h3 class="text-2xl font-bold mb-4">廣建龍獅團的使命</h3>
+                <p class="text-xl font-reading leading-relaxed mb-6 max-w-2xl mx-auto">
+                    作为新时代的醒狮传承者，我们致力于将传统醒狮文化与现代元素相结合，在保持传统精髓的基础上创新发展，让更多人了解和热爱这项珍贵的非物质文化遗产。
+                </p>
+                <a href="../gjlst.html#contact" class="inline-block bg-lionGold hover:bg-white text-lionDark font-reading py-3 px-8 rounded-full transition-colors shadow-lg">
+                    加入我们，共同传承
+                </a>
+            </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class=" bg-lionDark/90 text-white/80 py-8 px-4">
+        <div class="container mx-auto text-center">
+            <p>© 2025 廣建龍獅團 版权所有 | 传承非遗文化，弘扬国潮精神</p>
+            <div class="flex justify-center gap-4 text-xl font-reading">
+                <a href="../gjlst.html#culture" class="hover:text-lionGold transition-colors">
+                    <i class="fas fa-home"></i> 返回主页
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            const nav = navbar.querySelector('nav');
+            const logoImg = nav.querySelector('img');
+            const logoText = nav.querySelector('span');
+            const returnBtn = nav.querySelector('a[href*="gjlst.html"]');
+
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/90', 'backdrop-blur-sm');
+                nav.classList.remove('py-1');
+                nav.classList.add('py-0');
+                // 缩小Logo和文字
+                if (logoImg) logoImg.classList.replace('w-20', 'w-12'), logoImg.classList.replace('h-20', 'h-12');
+                if (logoText) logoText.classList.replace('text-5xl', 'text-3xl');
+                // 缩小返回按钮
+                if (returnBtn) returnBtn.classList.add('py-1', 'px-3');
+            } else {
+                nav.classList.remove('bg-white/90', 'backdrop-blur-sm', 'py-0');
+                nav.classList.add('py-1');
+                // 恢复Logo和文字大小
+                if (logoImg) logoImg.classList.replace('w-12', 'w-20'), logoImg.classList.replace('h-12', 'h-20');
+                if (logoText) logoText.classList.replace('text-3xl', 'text-5xl');
+                // 恢复返回按钮
+                if (returnBtn) returnBtn.classList.remove('py-1', 'px-3');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

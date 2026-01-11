@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>团队风采 - 廣建龍獅團</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="../插件/js/tailwindcss.js"></script>
+    <!-- 引入Font Awesome图标 -->
+    <link rel="stylesheet" href="../插件/fontawesome/css/all.min.css">
+    <!-- 自定义Tailwind配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lionRed: '#D22030', // 醒狮红
+                        lionGold: '#FFC107', // 醒狮金
+                        lionBeige: '#F9F6F0', // 国潮米色背景
+                        lionDark: '#2D2A26', // 深色文字
+                    },
+                    fontFamily: {
+                        chinese: ['"李旭科书法"', 'sans-serif'], // 书法字体，适合标题
+                        sans: ['"方正吕建德字体简体"', 'sans-serif'], // 正文字体
+                        reading: ['"华康宋体W3"', '"方正清刻本悦宋简体"', 'serif'], // 阅读字体，更适合长文本
+                        fanti:['"华康钢笔体繁W2"', 'sans-serif'], // 繁体书法风格
+                        wenyue:['"汉仪小麦体简"', 'sans-serif'], // 现代简约字体
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- 自定义样式 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            .bg-cloud {
+                background-image: url('../图片/hangpai.JPG');
+                background-size: cover;
+                background-position: center;
+                background-blend-mode: overlay;
+            }
+            .lion-hover {
+                transition: transform 0.3s ease;
+            }
+            .lion-hover:hover {
+                transform: translateY(-5px);
+            }
+            .team-card {
+                transition: all 0.3s ease;
+            }
+            .team-card:hover {
+                transform: translateY(-8px);
+            }
+            .skill-bar {
+                transition: width 1s ease-in-out;
+            }
+        }
+
+        /* 定义字体 */
+        @font-face {
+            font-family: '李旭科书法';
+            src: url('../配套字体/fonts/李旭科书法1.4_0.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: '方正吕建德字体简体';
+            src: url('../配套字体/fonts/方正吕建德字体简体_0.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: '华康钢笔体繁W2';
+            src: url('../配套字体/fonts/华康钢笔体繁W2.TTC') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: '汉仪小麦体简';
+            src: url('../配套字体/fonts/汉仪小麦体简.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: '华康宋体W3';
+            src: url('../配套字体/fonts/华康宋体W3.TTF') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: '方正清刻本悦宋简体';
+            src: url('../配套字体/fonts/方正清刻本悦宋简体_1.TTF') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Banner 文字出场动画 */
+        .banner-text {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+
+        .banner-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .banner-text-delay-1 {
+            transition-delay: 0.2s;
+        }
+
+        .banner-text-delay-2 {
+            transition-delay: 0.4s;
+        }
+
+    </style>
+</head>
+<body class="bg-lionBeige font-sans text-lionDark">
+    <!-- 导航栏 -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
+        <nav class="shadow-md py-1 px-4 md:px-8 relative overflow-hidden transition-all duration-500 ease-in-out" style="background-image: url('../图片/bj.png'); background-size: cover; background-position: center;">
+            <div class="absolute inset-0 bg-white/10"></div>
+            <div class="container mx-auto flex justify-between items-center relative z-10">
+                <!-- Logo -->
+                <a href="../gjlst.html" class="flex items-center gap-3">
+                    <img src="../图片/logo.jpg" alt="醒狮Logo" class="w-20 h-20 rounded-full transition-all duration-500 ease-in-out">
+                    <span class="font-family:chinese text-5xl text-lionRed transition-all duration-500 ease-in-out">廣建龍獅團</span>
+                </a>
+                <!-- 返回主页按钮 -->
+                <div class="flex items-center gap-4">
+                    <a href="../gjlst.html#team" class="inline-flex items-center gap-2 bg-lionRed hover:bg-lionGold text-white font-reading py-2 px-4 rounded-full transition-all duration-500 ease-in-out">
+                        <i class="fas fa-arrow-left"></i>
+                        返回主页
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Banner区域 -->
+    <section id="home" class="pt-20 bg-cloud bg-lionDark/80 min-h-screen flex items-center">
+        <div class="container mx-auto px-4 md:px-8 py-16 text-white">
+            <div class="max-w-3xl">
+                <h1 class="banner-text font-chinese text-6xl md:text-8xl mb-6 text-shadow text-lionGold">
+                    团队风采<br>传承有我
+                </h1>
+                <p class="banner-text banner-text-delay-1 text-2xl md:text-3xl mb-8 text-white/90 font-reading leading-relaxed">
+                    我们是一群热爱传统文化的青年传承者，用青春的激情演绎千年醒狮技艺，
+                    在传统与现代的碰撞中寻找文化传承的新的可能
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-lionGold mb-2">50+</div>
+                        <div class="text-lg text-white/90">核心成员</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-lionGold mb-2">16+</div>
+                        <div class="text-lg text-white/90">年传承历史</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-lionGold mb-2">99+</div>
+                        <div class="text-lg text-white/90">场演出经历</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-lionGold mb-2">30+</div>
+                        <div class="text-lg text-white/90">个奖项</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心成员 -->
+    <section class="py-16 px-4 md:px-8">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-family:chinese text-5xl text-lionRed mb-4">核心成员 · 廣建龍獅</h2>
+                <div class="w-20 h-1 bg-lionGold mx-auto mb-4"></div>
+                <p class="mt-4 text-gray-700 max-w-2xl mx-auto font-reading leading-relaxed">
+                    团队的灵魂人物，各司其职，共创辉煌
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 队长 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden lion-hover">
+                    <img src="../图片/lgx.jpg" alt="李光曦" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-chinese text-2xl">队长 · 李光曦</h3>
+                        <p class="text-gray-700 text-base font-reading">主攻：狮头表演/武术指导</p>
+                    </div>
+                </div>
+
+                <!-- 团长 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden lion-hover">
+                    <img src="../图片/phj.jpg" alt="彭鸿江" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-chinese text-2xl">团长 · 彭鸿江</h3>
+                        <p class="text-gray-700 text-base font-reading">主攻：狮尾配合/社团管理</p>
+                    </div>
+                </div>
+
+                <!-- 技术指导 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden lion-hover">
+                    <img src="../图片/xwp.jpg" alt="夏伟鹏" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-chinese text-2xl">技术指导 · 夏伟鹏</h3>
+                        <p class="text-gray-700 text-base font-reading">主攻：醒狮鼓点/音乐编排</p>
+                    </div>
+                </div>
+
+                <!-- 后勤部长 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden lion-hover">
+                    <img src="../图片/cbt.jpg" alt="陈本涛" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-chinese text-2xl">后勤部长 · 陈本涛</h3>
+                        <p class="text-gray-700 text-base font-reading">主攻：基础技艺/道具管理</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 团队理念 -->
+    <section class="py-16 px-4 md:px-8 bg-lionDark/5">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-family:chinese text-5xl text-lionRed mb-4">团队理念 · 传承创新</h2>
+                <div class="w-20 h-1 bg-lionGold mx-auto mb-4"></div>
+                <p class="mt-4 text-gray-700 max-w-2xl mx-auto font-reading leading-relaxed">
+                    我们的信念和追求，让传统醒狮在新时代焕发青春光彩
+                </p>
+            </div>
+
+            <!-- 理念介绍 -->
+            <div class="bg-white rounded-lg shadow-md p-8 mb-12">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="font-chinese text-3xl text-lionRed mb-4">传承千年技艺，创新时代风貌</h3>
+                        <p class="text-lg text-gray-700 leading-relaxed font-reading mb-4">
+                            醒狮作为中华民族优秀传统文化的重要组成部分，承载着千年的历史与文化底蕴。廣建龍獅團深知，传承并非简单的复制，而是要在理解传统文化精髓的基础上，用现代的视角和表达方式，让这门古老的艺术在新时代焕发出新的生机与活力。
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed font-reading">
+                            我们始终坚持"守正创新"的理念，既保留了醒狮表演中经典的鼓点、步法和造型，又融入了现代审美元素和时代精神，让传统与现代在这里完美融合，创造出独具特色的醒狮艺术表现形式。
+                        </p>
+                    </div>
+                    <div>
+                        <img src="../图片/hangpai.JPG" alt="醒狮传承" class="w-full h-64 object-cover rounded-lg shadow-md">
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden lion-hover">
+                    <img src="../图片/ract.jpg" alt="热爱传统" class="w-full h-48 object-cover">
+                    <div class="p-6 text-center">
+                        <div class="text-lionGold text-4xl mb-4">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">热爱传统</h3>
+                        <p class="text-lg text-gray-700 leading-relaxed font-reading">
+                            深深热爱中华传统文化，用心感悟醒狮艺术的精髓。每一击鼓点、每一个动作，都承载着祖辈们的智慧与汗水，我们要让这份珍贵的文化遗产在我们手中得以延续和发扬光大。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden lion-hover">
+                    <img src="../图片/cxcc.jpg" alt="创新传承" class="w-full h-48 object-cover">
+                    <div class="p-6 text-center">
+                        <div class="text-lionGold text-4xl mb-4">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">创新传承</h3>
+                        <p class="text-lg text-gray-700 leading-relaxed font-reading">
+                            在传承中创新，在创新中传承。我们不拘泥于传统形式，敢于打破常规，用现代的审美和理念重新诠释传统醒狮艺术，创造出既有传统韵味又具时代特色的新形式。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden lion-hover">
+                    <img src="../图片/tdxz.JPG" alt="团结协作" class="w-full h-48 object-cover">
+                    <div class="p-6 text-center">
+                        <div class="text-lionGold text-4xl mb-4">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">团结协作</h3>
+                        <p class="text-lg text-gray-700 leading-relaxed font-reading">
+                            醒狮需要团队配合，人生亦然。狮头与狮尾的默契配合，鼓手与表演者的心灵相通，都需要长期的磨合与信任。我们携手并进，共同书写青春的精彩篇章。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 团队使命与愿景 -->
+            <div class="mt-12 grid md:grid-cols-2 gap-8">
+                <div class="bg-lionRed text-white rounded-lg shadow-md p-8">
+                    <h3 class="font-chinese text-3xl text-lionGold mb-4">
+                        <i class="fas fa-bullseye mr-2"></i>我们的使命
+                    </h3>
+                    <p class="text-lg leading-relaxed font-reading mb-4">
+                        致力于醒狮文化的传承与发扬，让更多人了解、认识并热爱这项优秀的传统文化。通过系统的训练和丰富的演出实践，培养一代又一代的醒狮传承人，让醒狮艺术在校园、社区、城市中生根发芽，开花结果。
+                    </p>
+                    <p class="text-lg leading-relaxed font-reading">
+                        我们不仅要让醒狮在舞台上绽放光彩，更要将醒狮所蕴含的团结协作、奋发向上的精神传递给每一位观众，让这份精神力量激励更多人积极进取、勇往直前。
+                    </p>
+                </div>
+
+                <div class="bg-lionDark text-white rounded-lg shadow-md p-8">
+                    <h3 class="font-chinese text-3xl text-lionGold mb-4">
+                        <i class="fas fa-flag mr-2"></i>我们的愿景
+                    </h3>
+                    <p class="text-lg leading-relaxed font-reading mb-4">
+                        成为国内领先的醒狮文化传播团队，将醒狮艺术推向更广阔的舞台。我们希望通过不断的努力，让醒狮从传统文化符号转变为年轻一代时尚、潮流的文化认同，让传统文化真正"活"起来，走进年轻人的生活。
+                    </p>
+                    <p class="text-lg leading-relaxed font-reading">
+                        未来，我们计划开展更多形式的文化交流活动，与更多地区的醒狮团队建立联系，共同推动醒狮文化的发展，让这份宝贵的非物质文化遗产在世界范围内展现其独特的魅力。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 传承精神 -->
+            <div class="mt-12 bg-white rounded-lg shadow-md p-8">
+                <h3 class="font-chinese text-3xl text-lionRed mb-6 text-center">传承精神 · 薪火相传</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="bg-lionRed/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-book-open text-lionRed text-3xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">技艺传承</h4>
+                        <p class="text-gray-700 font-reading">通过师傅带徒弟的传统方式，将醒狮的鼓点、步法、造型等技艺一代代传承下去，确保技艺的纯正与完整。</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-lionRed/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-fire text-lionRed text-3xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">精神传承</h4>
+                        <p class="text-gray-700 font-reading">传递醒狮所蕴含的团结、勇敢、拼搏的精神内核，让每一位成员都能深刻理解和践行这份文化精神。</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-lionRed/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-star text-lionRed text-3xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">文化传承</h4>
+                        <p class="text-gray-700 font-reading">不仅仅是技艺的学习，更是对中华优秀传统文化的理解与认同，让文化自信深深植根于每一位成员心中。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 团队风采展示 -->
+    <section class="py-16 px-4 md:px-8 bg-lionDark/5">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-family:chinese text-5xl text-lionRed mb-4">精彩瞬间 · 团队合影</h2>
+                <div class="w-20 h-1 bg-lionGold mx-auto mb-4"></div>
+                <p class="mt-4 text-gray-700 max-w-2xl mx-auto font-reading leading-relaxed">
+                    记录我们成长的每一个美好时刻
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden lion-hover">
+                    <img src="../图片/rcxl.jpg" alt="团队训练" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="text-2xl font-bold mb-2 text-lionRed">日常训练</h3>
+                        <p class="text-gray-600 text-base font-reading">刻苦训练，精益求精</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden lion-hover">
+                    <img src="../图片/mqph.JPG" alt="团队合作" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="text-2xl font-bold mb-2 text-lionRed">默契配合</h3>
+                        <p class="text-gray-600 text-base font-reading">团结协作，共创佳绩</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden lion-hover">
+                    <img src="../图片/wtby.jpg" alt="舞台风采" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="text-2xl font-bold mb-2 text-lionRed">舞台表演</h3>
+                        <p class="text-gray-600 text-base font-reading">精湛技艺，震撼全场</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 招募信息 -->
+    <section class="py-16 px-4 md:px-8">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-family:chinese text-5xl text-lionRed mb-4">加入我们 · 共舞青春</h2>
+                <div class="w-20 h-1 bg-lionGold mx-auto mb-4"></div>
+                <p class="mt-4 text-gray-700 max-w-2xl mx-auto font-reading leading-relaxed">
+                    如果你热爱传统文化，如果你想挑战自我，如果你想结交志同道合的朋友，
+                    廣建龍獅團欢迎你的加入！
+                </p>
+            </div>
+            
+            <div class="bg-lionRed rounded-lg p-8 text-white text-center">
+                <h3 class="font-reading text-2xl mb-4">一起传承非遗，舞动青春！</h3>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="../gjlst.html#contact" class="bg-lionGold hover:bg-white text-lionDark font-reading py-3 px-8 rounded-full transition-colors">
+                        <i class="fas fa-user-plus mr-2"></i>立即报名
+                    </a>
+                    <a href="mailto:2420265230@qq.com" class="border-2 border-lionGold hover:bg-lionGold hover:text-lionDark font-reading py-3 px-8 rounded-full transition-colors">
+                        <i class="fas fa-envelope mr-2"></i>邮件咨询
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-lionDark/90 text-white/80 py-6 px-4">
+        <div class="container mx-auto text-center">
+            <p>© 2025 廣建龍獅團 版权所有 | 传承非遗文化，弘扬国潮精神</p>
+            <div class="mt-4 flex justify-center gap-4 text-xl">
+                <a href="../gjlst.html#team" class="font-reading hover:text-lionGold transition-colors">
+                    <i class="fas fa-home"></i> 返回主页
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            const nav = navbar.querySelector('nav');
+            const logoImg = nav.querySelector('img');
+            const logoText = nav.querySelector('span');
+            const returnBtn = nav.querySelector('a[href*="gjlst.html"]');
+
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/90', 'backdrop-blur-sm');
+                nav.classList.remove('py-1');
+                nav.classList.add('py-0');
+                // 缩小Logo和文字
+                if (logoImg) logoImg.classList.replace('w-20', 'w-12'), logoImg.classList.replace('h-20', 'h-12');
+                if (logoText) logoText.classList.replace('text-5xl', 'text-3xl');
+                // 缩小返回按钮
+                if (returnBtn) returnBtn.classList.add('py-1', 'px-3');
+            } else {
+                nav.classList.remove('bg-white/90', 'backdrop-blur-sm', 'py-0');
+                nav.classList.add('py-1');
+                // 恢复Logo和文字大小
+                if (logoImg) logoImg.classList.replace('w-12', 'w-20'), logoImg.classList.replace('h-12', 'h-20');
+                if (logoText) logoText.classList.replace('text-3xl', 'text-5xl');
+                // 恢复返回按钮
+                if (returnBtn) returnBtn.classList.remove('py-1', 'px-3');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Banner 文字出场动画
+        const bannerTexts = document.querySelectorAll('.banner-text');
+
+        function handleBannerAnimation() {
+            bannerTexts.forEach(text => {
+                const rect = text.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                // 当元素进入视口时触发动画
+                if (rect.top < windowHeight - 100) {
+                    text.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleBannerAnimation);
+        // 页面加载时立即触发动画
+        handleBannerAnimation();
+    </script>
+</body>
+</html>

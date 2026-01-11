@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>廣建龍獅團 - 传承岭南狮韵，舞动国潮新风</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="./插件/js/tailwindcss.js"></script>
+    <!-- 引入Font Awesome图标 -->
+    <link rel="stylesheet" href="./插件/fontawesome/css/all.min.css">
+    <!-- 自定义Tailwind配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lionRed: '#D22030', // 醒狮红
+                        lionGold: '#FFC107', // 醒狮金
+                        lionBeige: '#F9F6F0', // 国潮米色背景
+                        lionDark: '#2D2A26', // 深色文字
+                    },
+                    fontFamily: {
+                        chinese: ['"李旭科书法"', 'sans-serif'], // 书法字体，适合标题
+                        sans: ['"方正吕建德字体简体"', 'sans-serif'], // 正文字体
+                        reading: ['"华康宋体W3"', '"方正清刻本悦宋简体"', 'serif'], // 阅读字体，更适合长文本
+                        fanti:['"华康钢笔体繁W2"', 'sans-serif'], // 繁体书法风格
+                        wenyue:['"汉仪小麦体简"', 'sans-serif'], // 现代简约字体
+                        
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- 自定义样式 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            .bg-cloud {
+                background-image: url('./图片/toupai.jpg');
+                background-size: cover;
+                background-position: center;
+                background-blend-mode: overlay;
+            }
+            .lion-hover {
+                transition: transform 0.3s ease;
+            }
+            .lion-hover:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* 焦点图样式 */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 600px;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-indicator.active {
+            background-color: #FFC107;
+            transform: scale(1.2);
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+            z-index: 10;
+        }
+
+        .carousel-nav:hover {
+            background-color: #D22030;
+        }
+
+        .carousel-nav.prev {
+            left: 20px;
+        }
+
+        .carousel-nav.next {
+            right: 20px;
+        }
+        @font-face {
+            font-family: '李旭科书法';
+            src: url('./配套字体/fonts/李旭科书法1.4_0.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: '方正吕建德字体简体';
+            src: url('./配套字体/fonts/方正吕建德字体简体_0.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: '华康钢笔体繁W2';
+            src: url('./配套字体/fonts/华康钢笔体繁W2.TTC') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: '汉仪小麦体简';
+            src: url('./配套字体/fonts/汉仪小麦体简.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: '华康宋体W3';
+            src: url('./配套字体/fonts/华康宋体W3.TTF') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: '方正清刻本悦宋简体';
+            src: url('./配套字体/fonts/方正清刻本悦宋简体_1.TTF') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .stroke-shadow {
+  font-size: 48px;
+  color: #fffb00; /* 填充色 */
+  text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000; /* 4方向黑色描边，无模糊 */
+}
+
+/* 链接（a标签）的悬停下划线效果（a标签默认有下划线，先去掉） */
+        a.custom-link {
+            /* 默认状态：去掉a标签自带的下划线 */
+            text-decoration: none;
+            color: #0066cc;
+        }
+        /* 鼠标悬停时：显示下划线 */
+        a.custom-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* 浮动图片动画 */
+        .float-image {
+            position: fixed;
+            z-index: 5;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .float-image.school-right {
+            right: 50px;
+            top: 50%;
+            transform: translateX(200px) translateY(-50%);
+            width: 80px;
+            height: auto;
+        }
+
+        .float-image.team-left {
+            left: 50px;
+            top: 50%;
+            transform: translateY(200px);
+            width: 120px;
+            height: auto;
+        }
+
+        .float-image.show {
+            opacity: 1;
+        }
+
+        .float-image.school-right.show {
+            transform: translateX(0) translateY(-50%);
+        }
+
+        .float-image.team-left.show {
+            transform: translateY(0);
+        }
+
+        /* Banner 文字出场动画 */
+        .banner-text {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+
+        .banner-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .banner-text-delay-1 {
+            transition-delay: 0.2s;
+        }
+
+        .banner-text-delay-2 {
+            transition-delay: 0.4s;
+        }
+
+    </style>
+    <!-- 引入本地字体文件 -->
+</head>
+<body class="bg-lionBeige font-sans text-lionDark">
+    <!-- 导航栏 -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
+        <nav class="shadow-md py-1 px-4 md:px-8 relative overflow-hidden transition-all duration-500 ease-in-out" style="background-image: url('./图片/bj.png'); background-size: cover; background-position: center;">
+            <div class="absolute inset-0 bg-white/10"></div>
+            <div class="container mx-auto flex justify-between items-center relative z-10">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <img src="./图片/logo.jpg" alt="醒狮Logo" class="w-20 h-20 rounded-full transition-all duration-500 ease-in-out">
+                    <span class="font-family:chinese text-5xl text-lionRed transition-all duration-500 ease-in-out">廣建龍獅團</span>
+                </a>
+                <!-- 移动端菜单按钮 -->
+                <button class="md:hidden text-lionDark text-2xl" id="menuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <!-- 导航菜单 -->
+                <ul class="hidden md:flex gap-6 text-xl font-reading font-bold" id="navMenu">
+                    <li><a href="#home" class="text-lionRed hover:text-lionGold transition-all duration-500 ease-in-out">首页</a></li>
+                    <li><a href="#school" class="hover:text-lionGold transition-all duration-500 ease-in-out">学校简介</a></li>
+                    <li><a href="#team" class="hover:text-lionGold transition-all duration-500 ease-in-out">关于我们</a></li>
+                    <li><a href="#culture" class="hover:text-lionGold transition-all duration-500 ease-in-out">醒狮文化</a></li>
+                    <li><a href="#services" class="hover:text-lionGold transition-all duration-500 ease-in-out">能力展示</a></li>
+                    <li><a href="#performance" class="hover:text-lionGold transition-all duration-500 ease-in-out">表演展示</a></li>
+                    <li><a href="#contact" class="hover:text-lionGold transition-all duration-500 ease-in-out">联系我们</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- 移动端下拉菜单 -->
+        <div class="md:hidden hidden bg-white shadow-lg absolute w-full" id="mobileMenu">
+            <ul class="px-4 py-2 space-y-3 text-xl font-medium font-bold">
+                <li><a href="#home" class="block py-2 text-lionRed">首页</a></li>
+                <li><a href="#school" class="block py-2 hover:text-lionGold transition-colors">学校简介</a></li>
+                <li><a href="#team" class="block py-2 hover:text-lionGold transition-colors">关于我们</a></li>
+                <li><a href="#culture" class="block py-2 hover:text-lionGold transition-colors">醒狮文化</a></li>
+                <li><a href="#services" class="block py-2 hover:text-lionGold transition-colors">能力展示</a></li>
+                <li><a href="#performance" class="block py-2 hover:text-lionGold transition-colors">表演展示</a></li>
+                <li><a href="#contact" class="block py-2 hover:text-lionGold transition-colors">联系我们</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Banner区域 -->
+    <section id="home" class="pt-20 bg-cloud bg-lionDark/80 min-h-screen flex items-center">
+        <div class="container mx-auto px-4 md:px-8 py-16 text-white">
+            <div class="max-w-2xl">
+                <h1 class="banner-text font-family:chinese text-8xl md:text-8xl mb-6 text-shadow text-lionGold stroke-shadow">
+                    醒狮跃岭南<br>国潮正当红
+                </h1>
+                <p class="banner-text banner-text-delay-1 text-4xl md:text-3xl mb-8 text-white/90">
+                    廣建龍獅團，传承百年非遗技艺，融合现代国潮元素，演绎东方雄狮之美
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学校简介 -->
+    <section id="school" class="py-16 px-4 md:px-8 bg-lionBeige">
+        <img src="./图片/xdlbyl.png" alt="装饰" class="float-image school-right" id="schoolFloatImg">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-family:chinese text-5xl text-lionRed mb-4">学校简介 · 广建风采</h2>
+                <div class="w-20 h-1 bg-lionGold mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <img src="./图片/gjmm.jpg" alt="学校风采" class="w-full rounded-lg shadow-lg object-cover" style="aspect-ratio: 16/9;">
+                </div>
+                <div>
+                    <a href="https://www.gdcvi.edu.cn/" target="_blank" class="custom-link"><h3 class="text-3xl  text-lionRed mb-6 font-chinese">广东建设职业技术学院</h3></a>
+                    <p class="text-xl mb-4 leading-relaxed font-reading text-gray-700">
+                        广东建设职业技术学院是经广东省人民政府批准、教育部备案的全日制公办高等职业院校，隶属于广东省教育厅。学校创办于1979年，前身为广东省建设工程学校，2006年升格为高职院校。
+                    </p>
+                    <p class="text-xl mb-4 leading-relaxed font-reading text-gray-700">
+                        学校秉承"厚德、强能、励志、笃行"的校训精神，坚持以服务发展为宗旨、以促进就业为导向，深化产教融合、校企合作，培养了数以万计的技术技能人才，为广东乃至全国的城乡建设事业做出了重要贡献。
+                    </p>
+                    <div class="grid grid-cols-3 gap-4 mt-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-lionRed">1979</div>
+                            <div class="text-base font-reading text-gray-700">建校年份</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-lionRed">45+</div>
+                            <div class="text-base font-reading text-gray-700">年办学历史</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-lionRed">10000+</div>
+                            <div class="text-base font-reading text-gray-700">在校学生</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+<section id="team" class="py-16 px-4 md:px-8">
+    <img src="./图片/xhjxzmtx.png" alt="装饰" class="float-image team-left" id="teamFloatImg">
+    <div class="container mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="font-family:chinese text-5xl text-lionRed mb-4">关于我们 · 廣建龍獅</h2>
+            <div class="w-20 h-1 bg-lionGold mx-auto"></div>
+        </div>
+        <a href=".//tdfc/team.html" class="inline-block bg-lionRed hover:bg-lionGold text-white font-reading py-2 px-6 rounded-full transition-colors mt-6">
+                    <i class="fas fa-users mr-2"></i>详细了解团队成员
+                </a>
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+                <p class="text-xl mb-4 leading-relaxed font-reading text-gray-700">
+                    廣建龍獅團成立于2009年，是广东建设职业技术学院校级社团，直属于校团委管理。我们致力于传承国家级非物质文化遗产——岭南醒狮技艺，将传统民俗文化与现代校园生活相结合。
+                </p>
+                <p class="text-xl mb-4 leading-relaxed font-reading text-gray-700">
+                    团队以"传承非遗，舞动青春"为宗旨，吸纳了来自建筑工程、土木工程、艺术设计、经济管理等不同专业的优秀学生，通过系统训练和精湛表演，展现新时代青年对传统文化的理解与创新。
+                </p>
+                <p class="text-xl mb-4 leading-relaxed font-reading text-gray-700">
+                    作为学校重点建设的传统文化社团，我们多次代表学校参加省市级比赛并取得优异成绩，是学校文化建设的重要窗口和展示平台。
+                </p>
+                <div class="grid grid-cols-3 gap-4 mt-6">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-lionRed">16+</div>
+                        <div class="text-xl mb-4 leading-relaxed font-reading text-gray-700">年传承历史</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-lionRed">50+</div>
+                        <div class="text-xl mb-4 leading-relaxed font-reading text-gray-700">核心成员</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-lionRed">99+</div>
+                        <div class="text-xl mb-4 leading-relaxed font-reading text-gray-700">场演出经历</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src="./图片/hz.jpg" alt="团队合照" class="w-full rounded-lg shadow-lg">
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- 醒狮文化介绍 -->
+    <section id="culture" class="py-16 px-4 md:px-8">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-family:chinese text-5xl text-lionRed mb-4">醒狮文化 · 千年传承</h2>
+                <div class="w-20 h-1 bg-lionGold mx-auto mb-4"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6 lion-hover">
+                    <div class="text-lionGold text-4xl mb-4">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <a href="./xswh/origin.html#origin" class="custom-link">
+                    <h3 class="text-2xl  mb-3">起源与发展</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed font-reading inline-block font-bold transition-colors">
+                        醒狮源于唐代，盛于岭南，是融武术、舞蹈、音乐于一体的民间艺术。历经千年演变，成为粤港澳地区春节、庆典的核心民俗符号。
+                    </p></a>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 lion-hover">
+                    <div class="text-lionGold text-4xl mb-4">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <a href="./xswh/origin.html#culture" class="custom-link">
+                    <h3 class="text-2xl mb-3">造型与寓意</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed font-reading inline-block font-bold transition-colors">
+                        醒狮分"刘备狮""关羽狮""张飞狮"，分别象征仁义、忠义、勇猛。红金配色寓意吉祥如意，狮头纹饰融入祥云、牡丹等传统图案。
+                    </p></a>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 lion-hover">
+                    <div class="text-lionGold text-4xl mb-4">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <a href="./xswh/origin.html#inheritance" class="custom-link">
+                    <h3 class="text-2xl  mb-3">传承发展</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed font-reading inline-block font-bold transition-colors">
+                        2006年，醒狮被列入国家级非物质文化遗产名录。它不仅是艺术形式，更是岭南文化的载体，承载着华人的家国情怀与文化自信。
+                    </p></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 服务项目 -->
+    <section id="services" class="py-16 px-4 md:px-8 bg-lionDark/5">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-family:chinese text-5xl text-lionRed mb-4">能力展示 · 狮舞天下</h2>
+                <div class="w-20 h-1 bg-lionGold mx-auto"></div>
+                <p class="mt-4 text-xl text-gray-600 max-w-2xl mx-auto font-reading">
+                    专业的团队，精湛的技艺，为您提供全方位的醒狮表演
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <div class="bg-gradient-to-br from-lionRed to-red-700 rounded-xl shadow-lg p-6 lion-hover text-white border-2 border-lionGold/30 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-lionGold/10 rounded-full -mr-8 -mt-8"></div>
+                    <div class="relative z-10">
+                        <div class="text-lionGold text-5xl mb-3">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">开业庆典</h3>
+                        <p class="text-sm text-white/90 leading-relaxed font-reading">
+                            为商家带来好运和祝福，包括点睛仪式、采青纳财、舞狮贺喜、锣鼓助兴等完整流程，寓意生意兴隆、财源广进。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-lionRed to-red-700 rounded-xl shadow-lg p-6 lion-hover text-white border-2 border-lionGold/30 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-lionGold/10 rounded-full -mr-8 -mt-8"></div>
+                    <div class="relative z-10">
+                        <div class="text-lionGold text-5xl mb-3">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">节日演出</h3>
+                        <p class="text-sm text-white/90 leading-relaxed font-reading">
+                            春节、中秋、国庆等传统节日，为社区、企业、商场提供专业醒狮表演，营造喜庆祥和的节日氛围，传递美好祝福。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-lionRed to-red-700 rounded-xl shadow-lg p-6 lion-hover text-white border-2 border-lionGold/30 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-lionGold/10 rounded-full -mr-8 -mt-8"></div>
+                    <div class="relative z-10">
+                        <div class="text-lionGold text-5xl mb-3">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">企业活动</h3>
+                        <p class="text-sm text-white/90 leading-relaxed font-reading">
+                            企业年会、文化节、团队建设活动等，展现企业精神风貌，融入传统文化元素，提升企业品牌形象和文化内涵。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-lionRed to-red-700 rounded-xl shadow-lg p-6 lion-hover text-white border-2 border-lionGold/30 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-lionGold/10 rounded-full -mr-8 -mt-8"></div>
+                    <div class="relative z-10">
+                        <div class="text-lionGold text-5xl mb-3">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">比赛竞技</h3>
+                        <p class="text-sm text-white/90 leading-relaxed font-reading">
+                            参加各级醒狮比赛和锦标赛，包括高桩赛、传统狮赛等，展现专业水平，切磋技艺，提升团队知名度。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-lionRed to-red-700 rounded-xl shadow-lg p-6 lion-hover text-white border-2 border-lionGold/30 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-lionGold/10 rounded-full -mr-8 -mt-8"></div>
+                    <div class="relative z-10">
+                        <div class="text-lionGold text-5xl mb-3">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">教学培训</h3>
+                        <p class="text-sm text-white/90 leading-relaxed font-reading">
+                            为学校、社区、企业提供醒狮培训课程，包括基础技法、鼓乐教学、文化知识等，培养醒狮传承人才。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-lionRed to-red-700 rounded-xl shadow-lg p-6 lion-hover text-white border-2 border-lionGold/30 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-lionGold/10 rounded-full -mr-8 -mt-8"></div>
+                    <div class="relative z-10">
+                        <div class="text-lionGold text-5xl mb-3">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">公益演出</h3>
+                        <p class="text-sm text-white/90 leading-relaxed font-reading">
+                            积极参与公益活动，为慈善机构、弱势群体提供义务表演，传播正能量，践行社会责任，弘扬传统文化。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 焦点图 -->
+        <div class="carousel-container" id="carousel">
+            <div class="carousel-wrapper" id="carouselWrapper">
+                <div class="carousel-slide">
+                    <img src="./图片/tu1.JPG" alt="图片1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./图片/tu2.JPG" alt="图片2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./图片/tu3.JPG" alt="图片3">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./图片/tu4.jpg" alt="图片4">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./图片/tu5.JPG" alt="图片5">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./图片/tu6.JPG" alt="图片6">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./图片/tu7.jpg" alt="图片7">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./图片/tu8.jpg" alt="图片8">
+                </div>
+            </div>
+            <button class="carousel-nav prev" id="prevBtn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-nav next" id="nextBtn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="carousel-indicators" id="indicators"></div>
+        </div>
+    </section>
+
+    <!-- 表演展示 -->
+    <section id="performance" class="py-16 px-4 md:px-8">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-family:chinese text-5xl text-lionRed mb-4">表演展示 · 狮舞风华</h2>
+                <div class="w-20 h-1 bg-lionGold mx-auto mb-4"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+               <a href="./byzs/performance.html#xswh" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden lion-hover">
+                    <img src="./图片/wanhui.jpg" alt="晚会汇演" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-lionRed text-white px-2 py-1 rounded text-xs">金奖</span>
+                            <span class="text-gray-500 text-sm">2025年9月</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2 text-lionRed">2025迎新生晚会</h3>
+                        <p class="text-gray-700 text-base font-reading">获校级文艺汇演金奖，精彩演绎醒狮文化</p>
+                    </div>
+                </div>
+               </a>
+               <a href="./byzs/performance.html#ssfc" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden lion-hover">
+                    <img src="./图片/bisai.jpg" alt="商演活动" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-lionRed text-white px-2 py-1 rounded text-xs">冠军</span>
+                            <span class="text-gray-500 text-sm">省赛</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2 text-lionRed">比赛风采</h3>
+                        <p class="text-gray-700 text-base font-reading">历届大学生舞龙舞狮锦标赛屡获佳绩</p>
+                    </div>
+                </div>
+               </a>
+               <a href="./byzs/performance.html#fyjxy" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden lion-hover">
+                    <img src="./图片/xiaoyuanke.jpg" alt="非遗进校园" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-lionRed text-white px-2 py-1 rounded text-xs">公益</span>
+                            <span class="text-gray-500 text-sm">持续进行</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2 text-lionRed">非遗进校园公益课</h3>
+                        <p class="text-gray-700 text-base font-reading">面向广建学生的醒狮体验课，普及非遗文化</p>
+                    </div>
+                </div>
+               </a>
+               <a href="./byzs/performance.html#kyqd" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden lion-hover">
+                    <img src="./图片/kyqd.jpg" alt="开业庆典" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-lionRed text-white px-2 py-1 rounded text-xs">商演</span>
+                            <span class="text-gray-500 text-sm">全年</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2 text-lionRed">开业庆典服务</h3>
+                        <p class="text-gray-700 text-base font-reading">专业点睛仪式，为企业开业送上吉祥祝福</p>
+                    </div>
+                </div>
+               </a>
+               <a href="./byzs/performance.html#cjby" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden lion-hover">
+                    <img src="./图片/cjby.jpg" alt="节日表演" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-lionRed text-white px-2 py-1 rounded text-xs">节庆</span>
+                            <span class="text-gray-500 text-sm">传统节日</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2 text-lionRed">春节节日表演</h3>
+                        <p class="text-gray-700 text-base font-reading">深入社区，为居民带来传统年味</p>
+                    </div>
+                </div>
+               </a>
+               <a href="./byzs/performance.html#rcxl" class="block">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden lion-hover">
+                    <img src="./图片/lx.jpg" alt="日常训练" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-lionRed text-white px-2 py-1 rounded text-xs">训练</span>
+                            <span class="text-gray-500 text-sm">每周坚持</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2 text-lionRed">团队日常训练</h3>
+                        <p class="text-gray-700 text-base font-reading">刻苦训练，精益求精，追求完美技艺</p>
+                    </div>
+                </div>
+               </a>
+            </div>
+            <div class="text-center mt-8">
+                <a href="./byzs/performance.html" class="inline-block border-2 border-lionRed text-lionRed hover:bg-lionRed hover:text-white font-reading py-2 px-6 rounded-full transition-colors">
+                    查看更多表演
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-16 px-4 md:px-8 bg-lionDark text-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-chinese text-4xl text-lionGold mb-4">联系我们 · 共舞狮韵</h2>
+                <div class="w-20 h-1 bg-lionRed mx-auto mb-4"></div>
+                
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-reading text-2xl font-bold mb-6">合作咨询 / 表演预约</h3>
+                    <ul class="space-y-4">
+                        <li class="font-reading flex items-center gap-4">
+                            <i class="fas fa-phone text-lionGold text-xl"></i>
+                            <span>135-3613-3092（李队长）</span>
+                        </li>
+                        <li class="font-reading flex items-center gap-4">
+                            <i class="fas fa-envelope text-lionGold text-xl"></i>
+                            <span>GDP_DragonLion@163.com</span>
+                        </li>
+                        <li class="font-reading flex items-center gap-4">
+                            <i class="fas fa-map-marker-alt text-lionGold text-xl"></i>
+                            <span>广东省清远市清城区东城街道环城东路38号<br>二期操场校艺术龙狮团活动室</span>
+                        </li>
+                        <li class="font-reading flex items-center gap-4">
+                            <i class="fas fa-weixin text-lionGold text-xl"></i>
+                            <span>扫码加入咨询群</span>
+                        </li>
+                    </ul>
+                    <div class="mt-8">
+                        <img src="./图片/2vm.jpg" alt="公众号二维码" class="w-40 h-40 rounded-lg">
+                    </div>
+                </div>
+                <div>
+                    <form class="bg-white/10 backdrop-blur-sm p-6 rounded-lg" id="contactForm" action="mailto:2420265230@qq.com" method="post" enctype="text/plain">
+                        <div class="mb-4">
+                            <label class="font-reading mb-2 text-base" for="name">姓名</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-lg bg-white/20 border border-lionGold/30 focus:outline-none focus:border-lionGold text-white" placeholder="请输入您的姓名" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="font-reading mb-2 text-base" for="phone">电话</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 rounded-lg bg-white/20 border border-lionGold/30 focus:outline-none focus:border-lionGold text-white" placeholder="请输入您的联系电话" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="font-reading mb-2 text-base" for="content">咨询内容</label>
+                            <textarea id="content" name="content" rows="4" class="w-full px-4 py-2 rounded-lg bg-white/20 border border-lionGold/30 focus:outline-none focus:border-lionGold text-white" placeholder="请输入您的咨询或预约需求" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-lionGold text-lionDark font-reading py-2 px-4 rounded-lg hover:bg-lionRed hover:text-white transition-colors">
+                            提交信息
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="text-white/80 py-12 px-4" style="background-image: url('./图片/dt.png'); background-size: cover; background-position: center;">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <!-- 左侧：Logo 和 学校地址 -->
+                <div class="flex flex-col justify-between h-full">
+                    <!-- Logo -->
+                    <div>
+                        <img src="./图片/xxlogo.png" alt="Logo" class="h-16">
+                    </div>
+                    <br>
+                    <!-- 学校地址 -->
+                    <div class="mt-auto">
+                        <ul class="space-y-4 text-lg font-reading">
+                            <li class="flex items-start gap-2">
+                                <a href="https://cn.bing.com/maps?mepi=57%7E%7EEmbedded%7ELargeMapLink&ty=18&q=%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%B9%BF%E5%B7%9E%E5%B8%82%E7%99%BD%E4%BA%91%E5%8C%BA%E5%B9%BF%E8%8A%B1%E4%BA%8C%E8%B7%AF638%E5%8F%B7&ppois=23.26846_113.24635_%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%B9%BF%E5%B7%9E%E5%B8%82%E7%99%BD%E4%BA%91%E5%8C%BA%E5%B9%BF%E8%8A%B1%E4%BA%8C%E8%B7%AF638%E5%8F%B7_%7E&cp=mwb48ctf46jn&v=2&sV=1&FORM=MIRE&qpvt=%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%B9%BF%E5%B7%9E%E5%B8%82%E7%99%BD%E4%BA%91%E5%8C%BA%E5%B9%BF%E8%8A%B1%E4%BA%8C%E8%B7%AF638%E5%8F%B7&lvl=15.4" target="_blank">
+                                    <i class="fas fa-map-marker-alt text-lionGold mt-1"></i>
+                                <span class="text-base">
+                                    广州校区：广东省广州市白云区广花二路638号<br>
+                                    邮编：510440
+                                </span></a>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <a href="https://cn.bing.com/maps?mepi=57%7E%7EEmbedded%7ELargeMapLink&ty=18&q=%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%B8%85%E8%BF%9C%E5%B8%82%E6%B8%85%E5%9F%8E%E5%8C%BA%E7%8E%AF%E5%9F%8E%E4%B8%9C%E8%B7%AF&ppois=23.73491_113.08781_%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%B8%85%E8%BF%9C%E5%B8%82%E6%B8%85%E5%9F%8E%E5%8C%BA%E7%8E%AF%E5%9F%8E%E4%B8%9C%E8%B7%AF_%7E&cp=myppyktdqt63&v=2&sV=1&FORM=MIRE&qpvt=%E6%B8%85%E8%BF%9C%E5%B8%82%E6%B8%85%E5%9F%8E%E5%8C%BA%E4%B8%9C%E5%9F%8E%E8%A1%97%E9%81%93%E7%8E%AF%E5%9F%8E%E4%B8%9C%E8%B7%AF%E5%8C%9738%E5%8F%B7&lvl=16.2" target="_blank">
+                                    <i class="fas fa-map-marker-alt text-lionGold mt-1"></i>
+                                <span class="text-base">
+                                    清远校区：清远市清城区东城街道环城东路北38号<br>
+                                    邮政编码：511500
+                                </span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 右侧：公众号二维码和抖音图标 -->
+                <div class="flex flex-col items-center justify-center gap-4">
+                    <div class="flex gap-4">
+                        <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border-2 border-lionGold/30 shadow-lg w-40 h-48 flex flex-col items-center justify-center text-center">
+                            <img src="./图片/xx2vm.png" alt="公众号二维码" class="w-32 h-32 rounded-lg">
+                            <p class="text-lg mt-3 font-reading text-white">官方微信</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border-2 border-lionGold/30 shadow-lg w-40 h-48 flex flex-col items-center justify-center text-center">
+                            <a href="https://www.douyin.com/user/MS4wLjABAAAAFKIGy1BHeTpGpHhxVfbXm64NkoyI1qWDlP350Lg26WqfX09iKUcIZl0XKO9fCq15?from_tab_name=main" target="_blank" class="hover:text-lionGold transition-colors">
+                                <i class="fab fa-tiktok text-6xl text-white"></i>
+                            <p class="text-lg mt-3 font-reading text-white">廣建龍獅團<br>官方抖音</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 pt-8">
+                <p class="text-center text-lg">© 2025 廣建龍獅團 版权所有 | 广东建设职业技术学院 | 传承非遗文化，弘扬国潮精神</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            const nav = navbar.querySelector('nav');
+            const logoImg = nav.querySelector('img');
+            const logoText = nav.querySelector('span');
+            const navLinks = nav.querySelectorAll('#navMenu a');
+            const returnBtn = nav.querySelector('a:not([href="#"])');
+
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/90', 'backdrop-blur-sm');
+                nav.classList.remove('py-1');
+                nav.classList.add('py-0');
+                // 缩小Logo和文字
+                if (logoImg) logoImg.classList.replace('w-20', 'w-12'), logoImg.classList.replace('h-20', 'h-12');
+                if (logoText) logoText.classList.replace('text-5xl', 'text-3xl');
+                // 缩小导航链接
+                navLinks.forEach(link => link.classList.replace('text-2xl', 'text-xl'));
+                // 缩小返回按钮
+                if (returnBtn) returnBtn.classList.add('py-1', 'px-3');
+            } else {
+                nav.classList.remove('bg-white/90', 'backdrop-blur-sm', 'py-0');
+                nav.classList.add('py-1');
+                // 恢复Logo和文字大小
+                if (logoImg) logoImg.classList.replace('w-12', 'w-20'), logoImg.classList.replace('h-12', 'h-20');
+                if (logoText) logoText.classList.replace('text-3xl', 'text-5xl');
+                // 恢复导航链接大小
+                navLinks.forEach(link => link.classList.replace('text-xl', 'text-2xl'));
+                // 恢复返回按钮
+                if (returnBtn) returnBtn.classList.remove('py-1', 'px-3');
+            }
+        });
+
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // 切换图标
+            const icon = menuBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    // 关闭移动端菜单
+                    mobileMenu.classList.add('hidden');
+                    menuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                }
+            });
+        });
+
+        // 焦点图切换
+        const carouselWrapper = document.getElementById('carouselWrapper');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicatorsContainer = document.getElementById('indicators');
+        const slides = carouselWrapper.querySelectorAll('.carousel-slide');
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        // 创建指示器
+        slides.forEach((_, index) => {
+            const indicator = document.createElement('div');
+            indicator.classList.add('carousel-indicator');
+            if (index === 0) indicator.classList.add('active');
+            indicator.addEventListener('click', () => goToSlide(index));
+            indicatorsContainer.appendChild(indicator);
+        });
+
+        const indicators = indicatorsContainer.querySelectorAll('.carousel-indicator');
+
+        function updateCarousel() {
+            carouselWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        // 按钮事件
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // 自动播放
+        let autoplayInterval = setInterval(nextSlide, 3000);
+
+        // 鼠标悬停时暂停自动播放
+        const carousel = document.getElementById('carousel');
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoplayInterval);
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            autoplayInterval = setInterval(nextSlide, 3000);
+        });
+
+        // 浮动图片滚动动画
+        const schoolFloatImg = document.getElementById('schoolFloatImg');
+        const teamFloatImg = document.getElementById('teamFloatImg');
+        const schoolSection = document.getElementById('school');
+        const performanceSection = document.getElementById('performance');
+        const contactSection = document.getElementById('contact');
+
+        function handleScrollAnimation() {
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+
+            // 检查各section位置
+            const schoolRect = schoolSection.getBoundingClientRect();
+            const performanceRect = performanceSection.getBoundingClientRect();
+            const contactRect = contactSection.getBoundingClientRect();
+
+            // 首页区域：学校简介底部 >= windowHeight（还没进入学校简介）
+            const isHome = schoolRect.bottom >= windowHeight;
+            // 联系我们区域：联系我们顶部 <= windowHeight（已进入联系我们）
+            const isContact = contactRect.top <= windowHeight;
+
+            if (isHome || isContact) {
+                // 在首页部分或联系我们，隐藏两个浮动图
+                schoolFloatImg.classList.remove('show');
+                teamFloatImg.classList.remove('show');
+            } else {
+                // 在学校简介和联系我们之间，滑出并显示浮动图
+                schoolFloatImg.classList.add('show');
+                teamFloatImg.classList.add('show');
+            }
+        }
+
+        window.addEventListener('scroll', handleScrollAnimation);
+        handleScrollAnimation(); // 初始检查
+
+        // 表单提交处理
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // 获取表单数据
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const content = document.getElementById('content').value;
+
+                // 构建邮件内容
+                const subject = encodeURIComponent('廣建龍獅團 - 咨询预约');
+                const body = encodeURIComponent(
+                    `姓名: ${name}\n` +
+                    `电话: ${phone}\n` +
+                    `咨询内容:\n${content}`
+                );
+
+                // 使用 mailto 方式发送邮件
+                window.location.href = `mailto:2420265230@qq.com?subject=${subject}&body=${body}`;
+
+                // 显示提交成功提示
+                alert('感谢您的留言！系统将打开您的默认邮件客户端，请确认发送。');
+            });
+        }
+
+        // 标题出场动画
+        const fadeUpTitles = document.querySelectorAll('.fade-up-title');
+
+        function handleTitleAnimation() {
+            fadeUpTitles.forEach(title => {
+                const rect = title.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                // 当元素进入视口 200px 时触发动画
+                if (rect.top < windowHeight - 200) {
+                    title.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleTitleAnimation);
+        // 页面加载时立即检查
+        handleTitleAnimation();
+
+        // Banner 文字出场动画
+        const bannerTexts = document.querySelectorAll('.banner-text');
+
+        function handleBannerAnimation() {
+            bannerTexts.forEach(text => {
+                const rect = text.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                // 当元素进入视口时触发动画
+                if (rect.top < windowHeight - 100) {
+                    text.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleBannerAnimation);
+        // 页面加载时立即触发动画
+        handleBannerAnimation();
+    </script>
+</body>
+</html>
