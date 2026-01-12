@@ -194,42 +194,7 @@
             text-decoration: underline;
         }
         
-        /* 浮动图片动画 */
-        .float-image {
-            position: fixed;
-            z-index: 5;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
 
-        .float-image.school-right {
-            right: 50px;
-            top: 50%;
-            transform: translateX(200px) translateY(-50%);
-            width: 80px;
-            height: auto;
-        }
-
-        .float-image.team-left {
-            left: 50px;
-            top: 50%;
-            transform: translateY(200px);
-            width: 120px;
-            height: auto;
-        }
-
-        .float-image.show {
-            opacity: 1;
-        }
-
-        .float-image.school-right.show {
-            transform: translateX(0) translateY(-50%);
-        }
-
-        .float-image.team-left.show {
-            transform: translateY(0);
-        }
 
         /* Banner 文字出场动画 */
         .banner-text {
@@ -251,19 +216,42 @@
             transition-delay: 0.4s;
         }
 
+        /* 滚动公告栏样式 */
+        .announcement-scroll {
+            animation: scroll 20s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .announcement-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        /* 滚动公告栏容器 */
+        #announcementBar {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #announcementBar.hidden {
+            transform: translateY(-100%);
+        }
+
     </style>
     <!-- 引入本地字体文件 -->
 </head>
 <body class="bg-lionBeige font-sans text-lionDark">
     <!-- 导航栏 -->
-    <header class="fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
-        <nav class="shadow-md py-1 px-4 md:px-8 relative overflow-hidden transition-all duration-500 ease-in-out" style="background-image: url('./图片/bj.png'); background-size: cover; background-position: center;">
+    <header class="fixed w-full top-0 z-50 transition-all duration-500 ease-in-out" id="navbar">
+        <nav class="shadow-md py-3 px-4 md:px-8 relative overflow-hidden transition-all duration-500 ease-in-out" style="background-image: url('./图片/bj.png'); background-size: cover; background-position: center;">
             <div class="absolute inset-0 bg-white/10"></div>
             <div class="container mx-auto flex justify-between items-center relative z-10">
                 <!-- Logo -->
                 <a href="#" class="flex items-center gap-3">
-                    <img src="./图片/logo.jpg" alt="醒狮Logo" class="w-20 h-20 rounded-full transition-all duration-500 ease-in-out">
-                    <span class="font-family:chinese text-5xl text-lionRed transition-all duration-500 ease-in-out">廣建龍獅團</span>
+                    <img src="./图片/logo.jpg" alt="醒狮Logo" class="w-16 md:w-20 h-16 md:h-20 rounded-full transition-all duration-500 ease-in-out">
+                    <span class="font-family:chinese text-3xl md:text-5xl text-lionRed transition-all duration-500 ease-in-out">廣建龍獅團</span>
                 </a>
                 <!-- 移动端菜单按钮 -->
                 <button class="md:hidden text-lionDark text-2xl" id="menuBtn">
@@ -295,14 +283,32 @@
         </div>
     </header>
 
+    <!-- 滚动公告栏 -->
+    <div id="announcementBar" class="fixed top-24 left-0 right-0 z-40 bg-gradient-to-r from-lionRed to-red-700 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-2 flex items-center gap-3">
+            <span class="text-lionGold font-bold text-sm md:text-base whitespace-nowrap font-reading">
+                <i class="fas fa-bullhorn mr-1"></i>最新动态：
+            </span>
+            <div class="flex-1 overflow-hidden">
+                <div class="announcement-scroll flex items-center gap-8 whitespace-nowrap font-reading" id="announcementScroll">
+                    <span class="text-sm md:text-base">🎉 喜讯！廣建龍獅團荣获2025年校级文艺汇演金奖</span>
+                    <span class="text-sm md:text-base">📅 新学期招新即将开始，欢迎加入醒狮大家庭</span>
+                    <span class="text-sm md:text-base">🎊 醒狮文化公益课持续开展，传承非遗精神</span>
+                    <span class="text-sm md:text-base">🏆 我团在省大学生舞龙舞狮锦标赛中再创佳绩</span>
+                    <span class="text-sm md:text-base">💬 关注官方抖音号，了解更多精彩内容</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Banner区域 -->
-    <section id="home" class="pt-20 bg-cloud bg-lionDark/80 min-h-screen flex items-center">
+    <section id="home" class="pt-32 bg-cloud bg-lionDark/80 min-h-screen flex items-center">
         <div class="container mx-auto px-4 md:px-8 py-16 text-white">
             <div class="max-w-2xl">
-                <h1 class="banner-text font-family:chinese text-8xl md:text-8xl mb-6 text-shadow text-lionGold stroke-shadow">
+                <h1 class="banner-text font-family:chinese text-6xl md:text-8xl mb-6 text-shadow text-lionGold stroke-shadow">
                     醒狮跃岭南<br>国潮正当红
                 </h1>
-                <p class="banner-text banner-text-delay-1 text-4xl md:text-3xl mb-8 text-white/90">
+                <p class="banner-text banner-text-delay-1 text-xl md:text-3xl mb-8 text-white/90">
                     廣建龍獅團，传承百年非遗技艺，融合现代国潮元素，演绎东方雄狮之美
                 </p>
             </div>
@@ -311,10 +317,9 @@
 
     <!-- 学校简介 -->
     <section id="school" class="py-16 px-4 md:px-8 bg-lionBeige">
-        <img src="./图片/xdlbyl.png" alt="装饰" class="float-image school-right" id="schoolFloatImg">
         <div class="container mx-auto">
             <div class="text-center mb-12">
-                <h2 class="font-family:chinese text-5xl text-lionRed mb-4">学校简介 · 广建风采</h2>
+                <h2 class="font-family:chinese text-4xl md:text-5xl text-lionRed mb-4">学校简介 · 广建风采</h2>
                 <div class="w-20 h-1 bg-lionGold mx-auto"></div>
             </div>
             <div class="grid md:grid-cols-2 gap-8 items-center">
@@ -350,10 +355,9 @@
 
     <!-- 关于我们 -->
 <section id="team" class="py-16 px-4 md:px-8">
-    <img src="./图片/xhjxzmtx.png" alt="装饰" class="float-image team-left" id="teamFloatImg">
     <div class="container mx-auto">
         <div class="text-center mb-12">
-            <h2 class="font-family:chinese text-5xl text-lionRed mb-4">关于我们 · 廣建龍獅</h2>
+            <h2 class="font-family:chinese text-4xl md:text-5xl text-lionRed mb-4">关于我们 · 廣建龍獅</h2>
             <div class="w-20 h-1 bg-lionGold mx-auto"></div>
         </div>
         <a href=".//tdfc/team.html" class="inline-block bg-lionRed hover:bg-lionGold text-white font-reading py-2 px-6 rounded-full transition-colors mt-6">
@@ -396,7 +400,7 @@
     <section id="culture" class="py-16 px-4 md:px-8">
         <div class="container mx-auto">
             <div class="text-center mb-12">
-                <h2 class="font-family:chinese text-5xl text-lionRed mb-4">醒狮文化 · 千年传承</h2>
+                <h2 class="font-family:chinese text-4xl md:text-5xl text-lionRed mb-4">醒狮文化 · 千年传承</h2>
                 <div class="w-20 h-1 bg-lionGold mx-auto mb-4"></div>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
@@ -440,11 +444,8 @@
     <section id="services" class="py-16 px-4 md:px-8 bg-lionDark/5">
         <div class="container mx-auto">
             <div class="text-center mb-12">
-                <h2 class="font-family:chinese text-5xl text-lionRed mb-4">能力展示 · 狮舞天下</h2>
+                <h2 class="font-family:chinese text-4xl md:text-5xl text-lionRed mb-4">能力展示 · 狮舞天下</h2>
                 <div class="w-20 h-1 bg-lionGold mx-auto"></div>
-                <p class="mt-4 text-xl text-gray-600 max-w-2xl mx-auto font-reading">
-                    专业的团队，精湛的技艺，为您提供全方位的醒狮表演
-                </p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                 <div class="bg-gradient-to-br from-lionRed to-red-700 rounded-xl shadow-lg p-6 lion-hover text-white border-2 border-lionGold/30 relative overflow-hidden">
@@ -530,7 +531,7 @@
         <div class="carousel-container" id="carousel">
             <div class="carousel-wrapper" id="carouselWrapper">
                 <div class="carousel-slide">
-                    <img src="./图片/tu1.JPG" alt="图片1">
+                    <img src="./图片/tu1.webp" alt="图片1">
                 </div>
                 <div class="carousel-slide">
                     <img src="./图片/tu2.JPG" alt="图片2">
@@ -542,16 +543,22 @@
                     <img src="./图片/tu4.jpg" alt="图片4">
                 </div>
                 <div class="carousel-slide">
-                    <img src="./图片/tu5.JPG" alt="图片5">
+                    <img src="./图片/tu5.png" alt="图片5">
                 </div>
                 <div class="carousel-slide">
-                    <img src="./图片/tu6.JPG" alt="图片6">
+                    <img src="./图片/tu6.webp" alt="图片6">
                 </div>
                 <div class="carousel-slide">
                     <img src="./图片/tu7.jpg" alt="图片7">
                 </div>
                 <div class="carousel-slide">
                     <img src="./图片/tu8.jpg" alt="图片8">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./图片/tu9.webp" alt="图片8">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./图片/tu10.webp" alt="图片8">
                 </div>
             </div>
             <button class="carousel-nav prev" id="prevBtn">
@@ -568,7 +575,7 @@
     <section id="performance" class="py-16 px-4 md:px-8">
         <div class="container mx-auto">
             <div class="text-center mb-12">
-                <h2 class="font-family:chinese text-5xl text-lionRed mb-4">表演展示 · 狮舞风华</h2>
+                <h2 class="font-family:chinese text-4xl md:text-5xl text-lionRed mb-4">表演展示 · 狮舞风华</h2>
                 <div class="w-20 h-1 bg-lionGold mx-auto mb-4"></div>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -639,7 +646,7 @@
                </a>
                <a href="./byzs/performance.html#rcxl" class="block">
                 <div class="bg-white rounded-lg shadow-md overflow-hidden lion-hover">
-                    <img src="./图片/lx.jpg" alt="日常训练" class="w-full h-48 object-cover">
+                    <img src="./图片/rcxl.webp" alt="日常训练" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <div class="flex items-center gap-2 mb-2">
                             <span class="bg-lionRed text-white px-2 py-1 rounded text-xs">训练</span>
@@ -661,154 +668,97 @@
 
 
 
-    <!-- 联系我们 -->
-    <section id="contact" class="py-16 px-4 md:px-8 bg-lionDark text-white">
+    <!-- 联系我们 & 页脚 -->
+    <section id="contact" class="bg-lionDark text-white py-12 px-4" style="background-image: url('./图片/dt.png'); background-size: cover; background-position: center;">
         <div class="container mx-auto">
             <div class="text-center mb-12">
                 <h2 class="font-chinese text-4xl text-lionGold mb-4">联系我们 · 共舞狮韵</h2>
                 <div class="w-20 h-1 bg-lionRed mx-auto mb-4"></div>
-                
             </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="font-reading text-2xl font-bold mb-6">合作咨询 / 表演预约</h3>
-                    <ul class="space-y-4">
-                        <li class="font-reading flex items-center gap-4">
-                            <i class="fas fa-phone text-lionGold text-xl"></i>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- 联系方式 -->
+                <div class="flex flex-col">
+                    <h3 class="font-reading text-xl font-bold mb-4 text-lionGold"><i class="fas fa-phone-alt mr-2"></i>联系方式</h3>
+                    <ul class="space-y-3 text-lg font-reading">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone text-lionGold"></i>
                             <span>135-3613-3092（李队长）</span>
                         </li>
-                        <li class="font-reading flex items-center gap-4">
-                            <i class="fas fa-envelope text-lionGold text-xl"></i>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-lionGold"></i>
                             <span>GDP_DragonLion@163.com</span>
                         </li>
-                        <li class="font-reading flex items-center gap-4">
-                            <i class="fas fa-map-marker-alt text-lionGold text-xl"></i>
-                            <span>广东省清远市清城区东城街道环城东路38号<br>二期操场校艺术龙狮团活动室</span>
-                        </li>
-                        <li class="font-reading flex items-center gap-4">
-                            <i class="fas fa-weixin text-lionGold text-xl"></i>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-weixin text-lionGold"></i>
                             <span>扫码加入咨询群</span>
                         </li>
                     </ul>
-                    <div class="mt-8">
-                        <img src="./图片/2vm.jpg" alt="公众号二维码" class="w-40 h-40 rounded-lg">
+                    <div class="mt-6 space-y-2 text-base font-reading">
+                        <p class="flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt text-lionGold"></i>
+                            <span>广东省清远市清城区东城街道环城东路38号</span>
+                        </p>
+                        <p class="pl-7">二期操场校艺术龙狮团活动室</p>
                     </div>
                 </div>
-                <div>
-                    <form class="bg-white/10 backdrop-blur-sm p-6 rounded-lg" id="contactForm" action="mailto:2420265230@qq.com" method="post" enctype="text/plain">
-                        <div class="mb-4">
-                            <label class="font-reading mb-2 text-base" for="name">姓名</label>
-                            <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-lg bg-white/20 border border-lionGold/30 focus:outline-none focus:border-lionGold text-white" placeholder="请输入您的姓名" required>
+
+                <!-- 学校地址 -->
+                <div class="flex flex-col">
+                    <h3 class="font-reading text-xl font-bold mb-4 text-lionGold"><i class="fas fa-university mr-2"></i>学校地址</h3>
+                    <ul class="space-y-3 text-sm font-reading">
+                        <li class="flex items-start gap-2">
+                            <a href="https://cn.bing.com/maps?mepi=57%7E%7EEmbedded%7ELargeMapLink&ty=18&q=%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%B9%BF%E5%B7%9E%E5%B8%82%E7%99%BD%E4%BA%91%E5%8C%BA%E5%B9%BF%E8%8A%B1%E4%BA%8C%E8%B7%AF638%E5%8F%B7&ppois=23.26846_113.24635_%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%B9%BF%E5%B7%9E%E5%B8%82%E7%99%BD%E4%BA%91%E5%8C%BA%E5%B9%BF%E8%8A%B1%E4%BA%8C%E8%B7%AF638%E5%8F%B7_%7E&cp=mwb48ctf46jn&v=2&sV=1&FORM=MIRE&qpvt=%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%B9%BF%E5%B7%9E%E5%B8%82%E7%99%BD%E4%BA%91%E5%8C%BA%E5%B9%BF%E8%8A%B1%E4%BA%8C%E8%B7%AF638%E5%8F%B7&lvl=15.4" target="_blank" class="hover:text-lionGold transition-colors">
+                                <i class="fas fa-map-marker-alt text-lionGold mt-1"></i>
+                                <span class="text-xs">
+                                    广州校区：广东省广州市白云区广花二路638号<br>邮编：510440
+                                </span></a>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <a href="https://cn.bing.com/maps?mepi=57%7E%7EEmbedded%7ELargeMapLink&ty=18&q=%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%B8%85%E8%BF%9C%E5%B8%82%E6%B8%85%E5%9F%8E%E5%8C%BA%E7%8E%AF%E5%9F%8E%E4%B8%9C%E8%B7%AF&ppois=23.73491_113.08781_%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%B8%85%E8%BF%9C%E5%B8%82%E6%B8%85%E5%9F%8E%E5%8C%BA%E7%8E%AF%E5%9F%8E%E4%B8%9C%E8%B7%AF_%7E&cp=myppyktdqt63&v=2&sV=1&FORM=MIRE&qpvt=%E6%B8%85%E8%BF%9C%E5%B8%82%E6%B8%85%E5%9F%8E%E5%8C%BA%E4%B8%9C%E5%9F%8E%E8%A1%97%E9%81%93%E7%8E%AF%E5%9F%8E%E4%B8%9C%E8%B7%AF%E5%8C%9738%E5%8F%B7&lvl=16.2" target="_blank" class="hover:text-lionGold transition-colors">
+                                <i class="fas fa-map-marker-alt text-lionGold mt-1"></i>
+                                <span class="text-xs">
+                                    清远校区：清远市清城区东城街道环城东路北38号<br>邮政编码：511500
+                                </span></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 二维码 -->
+                <div class="flex flex-col gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="./图片/xxlogo.png" alt="学校Logo" class="h-12">
+                            <img src="./图片/gjlstlogo.png" alt="廣建龍獅團Logo" class="h-12">
                         </div>
-                        <div class="mb-4">
-                            <label class="font-reading mb-2 text-base" for="phone">电话</label>
-                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 rounded-lg bg-white/20 border border-lionGold/30 focus:outline-none focus:border-lionGold text-white" placeholder="请输入您的联系电话" required>
+                        <div class="flex gap-4">
+                            <div class="text-center">
+                                <img src="./图片/2vm.jpg" alt="微信咨询群二维码" class="w-28 h-28 rounded-lg">
+                                <p class="text-sm mt-2 font-reading text-white">微信咨询群</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="./图片/xx2vm.png" alt="公众号二维码" class="w-28 h-28 rounded-lg">
+                                <p class="text-sm mt-2 font-reading text-white">官方公众号</p>
+                            </div>
                         </div>
-                        <div class="mb-4">
-                            <label class="font-reading mb-2 text-base" for="content">咨询内容</label>
-                            <textarea id="content" name="content" rows="4" class="w-full px-4 py-2 rounded-lg bg-white/20 border border-lionGold/30 focus:outline-none focus:border-lionGold text-white" placeholder="请输入您的咨询或预约需求" required></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-lionGold text-lionDark font-reading py-2 px-4 rounded-lg hover:bg-lionRed hover:text-white transition-colors">
-                            提交信息
-                        </button>
-                    </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 pt-8 text-center">
+                <p class="text-lg mb-4">© 2025 廣建龍獅團 版权所有 | 广东建设职业技术学院 | 传承非遗文化，弘扬国潮精神</p>
+                <div class="flex justify-center gap-8 text-xl">
+                    <a href="https://www.douyin.com/user/MS4wLjABAAAAFKIGy1BHeTpGpHhxVfbXm64NkoyI1qWDlP350Lg26WqfX09iKUcIZl0XKO9fCq15?from_tab_name=main" target="_blank" class="hover:text-lionGold transition-colors">
+                        <i class="fab fa-tiktok"></i>
+                        <span class="ml-2 text-base font-reading">官方抖音</span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 页脚 -->
-    <footer class="text-white/80 py-12 px-4" style="background-image: url('./图片/dt.png'); background-size: cover; background-position: center;">
-        <div class="container mx-auto">
-            <div class="grid md:grid-cols-2 gap-8 mb-8">
-                <!-- 左侧：Logo 和 学校地址 -->
-                <div class="flex flex-col justify-between h-full">
-                    <!-- Logo -->
-                    <div>
-                        <img src="./图片/xxlogo.png" alt="Logo" class="h-16">
-                    </div>
-                    <br>
-                    <!-- 学校地址 -->
-                    <div class="mt-auto">
-                        <ul class="space-y-4 text-lg font-reading">
-                            <li class="flex items-start gap-2">
-                                <a href="https://cn.bing.com/maps?mepi=57%7E%7EEmbedded%7ELargeMapLink&ty=18&q=%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%B9%BF%E5%B7%9E%E5%B8%82%E7%99%BD%E4%BA%91%E5%8C%BA%E5%B9%BF%E8%8A%B1%E4%BA%8C%E8%B7%AF638%E5%8F%B7&ppois=23.26846_113.24635_%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%B9%BF%E5%B7%9E%E5%B8%82%E7%99%BD%E4%BA%91%E5%8C%BA%E5%B9%BF%E8%8A%B1%E4%BA%8C%E8%B7%AF638%E5%8F%B7_%7E&cp=mwb48ctf46jn&v=2&sV=1&FORM=MIRE&qpvt=%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%B9%BF%E5%B7%9E%E5%B8%82%E7%99%BD%E4%BA%91%E5%8C%BA%E5%B9%BF%E8%8A%B1%E4%BA%8C%E8%B7%AF638%E5%8F%B7&lvl=15.4" target="_blank">
-                                    <i class="fas fa-map-marker-alt text-lionGold mt-1"></i>
-                                <span class="text-base">
-                                    广州校区：广东省广州市白云区广花二路638号<br>
-                                    邮编：510440
-                                </span></a>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <a href="https://cn.bing.com/maps?mepi=57%7E%7EEmbedded%7ELargeMapLink&ty=18&q=%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%B8%85%E8%BF%9C%E5%B8%82%E6%B8%85%E5%9F%8E%E5%8C%BA%E7%8E%AF%E5%9F%8E%E4%B8%9C%E8%B7%AF&ppois=23.73491_113.08781_%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%B8%85%E8%BF%9C%E5%B8%82%E6%B8%85%E5%9F%8E%E5%8C%BA%E7%8E%AF%E5%9F%8E%E4%B8%9C%E8%B7%AF_%7E&cp=myppyktdqt63&v=2&sV=1&FORM=MIRE&qpvt=%E6%B8%85%E8%BF%9C%E5%B8%82%E6%B8%85%E5%9F%8E%E5%8C%BA%E4%B8%9C%E5%9F%8E%E8%A1%97%E9%81%93%E7%8E%AF%E5%9F%8E%E4%B8%9C%E8%B7%AF%E5%8C%9738%E5%8F%B7&lvl=16.2" target="_blank">
-                                    <i class="fas fa-map-marker-alt text-lionGold mt-1"></i>
-                                <span class="text-base">
-                                    清远校区：清远市清城区东城街道环城东路北38号<br>
-                                    邮政编码：511500
-                                </span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 右侧：公众号二维码和抖音图标 -->
-                <div class="flex flex-col items-center justify-center gap-4">
-                    <div class="flex gap-4">
-                        <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border-2 border-lionGold/30 shadow-lg w-40 h-48 flex flex-col items-center justify-center text-center">
-                            <img src="./图片/xx2vm.png" alt="公众号二维码" class="w-32 h-32 rounded-lg">
-                            <p class="text-lg mt-3 font-reading text-white">官方微信</p>
-                        </div>
-                        <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border-2 border-lionGold/30 shadow-lg w-40 h-48 flex flex-col items-center justify-center text-center">
-                            <a href="https://www.douyin.com/user/MS4wLjABAAAAFKIGy1BHeTpGpHhxVfbXm64NkoyI1qWDlP350Lg26WqfX09iKUcIZl0XKO9fCq15?from_tab_name=main" target="_blank" class="hover:text-lionGold transition-colors">
-                                <i class="fab fa-tiktok text-6xl text-white"></i>
-                            <p class="text-lg mt-3 font-reading text-white">廣建龍獅團<br>官方抖音</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-white/20 pt-8">
-                <p class="text-center text-lg">© 2025 廣建龍獅團 版权所有 | 广东建设职业技术学院 | 传承非遗文化，弘扬国潮精神</p>
-            </div>
-        </div>
-    </footer>
 
     <!-- JavaScript -->
     <script>
-        // 导航栏滚动效果
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            const nav = navbar.querySelector('nav');
-            const logoImg = nav.querySelector('img');
-            const logoText = nav.querySelector('span');
-            const navLinks = nav.querySelectorAll('#navMenu a');
-            const returnBtn = nav.querySelector('a:not([href="#"])');
-
-            if (window.scrollY > 50) {
-                nav.classList.add('bg-white/90', 'backdrop-blur-sm');
-                nav.classList.remove('py-1');
-                nav.classList.add('py-0');
-                // 缩小Logo和文字
-                if (logoImg) logoImg.classList.replace('w-20', 'w-12'), logoImg.classList.replace('h-20', 'h-12');
-                if (logoText) logoText.classList.replace('text-5xl', 'text-3xl');
-                // 缩小导航链接
-                navLinks.forEach(link => link.classList.replace('text-2xl', 'text-xl'));
-                // 缩小返回按钮
-                if (returnBtn) returnBtn.classList.add('py-1', 'px-3');
-            } else {
-                nav.classList.remove('bg-white/90', 'backdrop-blur-sm', 'py-0');
-                nav.classList.add('py-1');
-                // 恢复Logo和文字大小
-                if (logoImg) logoImg.classList.replace('w-12', 'w-20'), logoImg.classList.replace('h-12', 'h-20');
-                if (logoText) logoText.classList.replace('text-3xl', 'text-5xl');
-                // 恢复导航链接大小
-                navLinks.forEach(link => link.classList.replace('text-xl', 'text-2xl'));
-                // 恢复返回按钮
-                if (returnBtn) returnBtn.classList.remove('py-1', 'px-3');
-            }
-        });
-
         // 移动端菜单切换
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -900,67 +850,60 @@
             autoplayInterval = setInterval(nextSlide, 3000);
         });
 
-        // 浮动图片滚动动画
-        const schoolFloatImg = document.getElementById('schoolFloatImg');
-        const teamFloatImg = document.getElementById('teamFloatImg');
-        const schoolSection = document.getElementById('school');
-        const performanceSection = document.getElementById('performance');
-        const contactSection = document.getElementById('contact');
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            const nav = navbar.querySelector('nav');
+            const logoImg = nav.querySelector('img');
+            const logoText = nav.querySelector('span');
+
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/90', 'backdrop-blur-sm');
+                nav.classList.remove('py-3');
+                nav.classList.add('py-1');
+                // 缩小Logo和文字（在移动端和桌面端都缩小）
+                if (logoImg) {
+                    logoImg.classList.remove('md:w-20', 'md:h-20');
+                    logoImg.classList.add('md:w-12', 'md:h-12');
+                }
+                if (logoText) {
+                    logoText.classList.remove('md:text-5xl');
+                    logoText.classList.add('md:text-2xl');
+                }
+            } else {
+                nav.classList.remove('bg-white/90', 'backdrop-blur-sm', 'py-1');
+                nav.classList.add('py-3');
+                // 恢复Logo和文字大小
+                if (logoImg) {
+                    logoImg.classList.remove('md:w-12', 'md:h-12');
+                    logoImg.classList.add('md:w-20', 'md:h-20');
+                }
+                if (logoText) {
+                    logoText.classList.remove('md:text-2xl');
+                    logoText.classList.add('md:text-5xl');
+                }
+            }
+        });
+
+        // 公告栏滚动动画
+        const announcementBar = document.getElementById('announcementBar');
 
         function handleScrollAnimation() {
-            const scrollPosition = window.scrollY;
-            const windowHeight = window.innerHeight;
+            const homeSection = document.getElementById('home');
+            const homeRect = homeSection.getBoundingClientRect();
+            const isHome = homeRect.bottom >= window.innerHeight;
 
-            // 检查各section位置
-            const schoolRect = schoolSection.getBoundingClientRect();
-            const performanceRect = performanceSection.getBoundingClientRect();
-            const contactRect = contactSection.getBoundingClientRect();
-
-            // 首页区域：学校简介底部 >= windowHeight（还没进入学校简介）
-            const isHome = schoolRect.bottom >= windowHeight;
-            // 联系我们区域：联系我们顶部 <= windowHeight（已进入联系我们）
-            const isContact = contactRect.top <= windowHeight;
-
-            if (isHome || isContact) {
-                // 在首页部分或联系我们，隐藏两个浮动图
-                schoolFloatImg.classList.remove('show');
-                teamFloatImg.classList.remove('show');
+            // 公告栏显示逻辑：只在首页显示
+            if (isHome) {
+                announcementBar.classList.remove('hidden');
             } else {
-                // 在学校简介和联系我们之间，滑出并显示浮动图
-                schoolFloatImg.classList.add('show');
-                teamFloatImg.classList.add('show');
+                announcementBar.classList.add('hidden');
             }
         }
 
         window.addEventListener('scroll', handleScrollAnimation);
         handleScrollAnimation(); // 初始检查
 
-        // 表单提交处理
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                // 获取表单数据
-                const name = document.getElementById('name').value;
-                const phone = document.getElementById('phone').value;
-                const content = document.getElementById('content').value;
-
-                // 构建邮件内容
-                const subject = encodeURIComponent('廣建龍獅團 - 咨询预约');
-                const body = encodeURIComponent(
-                    `姓名: ${name}\n` +
-                    `电话: ${phone}\n` +
-                    `咨询内容:\n${content}`
-                );
-
-                // 使用 mailto 方式发送邮件
-                window.location.href = `mailto:2420265230@qq.com?subject=${subject}&body=${body}`;
-
-                // 显示提交成功提示
-                alert('感谢您的留言！系统将打开您的默认邮件客户端，请确认发送。');
-            });
-        }
 
         // 标题出场动画
         const fadeUpTitles = document.querySelectorAll('.fade-up-title');

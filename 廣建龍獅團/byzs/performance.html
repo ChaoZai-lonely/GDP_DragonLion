@@ -93,6 +93,17 @@
             font-style: normal;
         }
 
+        /* 左侧导航栏悬停显示 */
+        @media (min-width: 1024px) {
+            #leftSidebar {
+                transform: translateX(-90%);
+            }
+
+            #leftSidebar:hover {
+                transform: translateX(0);
+            }
+        }
+
         /* 锚点跳转居中样式 */
         html {
             scroll-behavior: smooth;
@@ -107,8 +118,8 @@
             <div class="container mx-auto flex justify-between items-center relative z-10">
                 <!-- Logo -->
                 <a href="../gjlst.html" class="flex items-center gap-3">
-                    <img src="../图片/logo.jpg" alt="醒狮Logo" class="w-20 h-20 rounded-full transition-all duration-500 ease-in-out">
-                    <span class="font-family:chinese text-5xl text-lionRed transition-all duration-500 ease-in-out">廣建龍獅團</span>
+                    <img src="../图片/logo.jpg" alt="醒狮Logo" class="w-16 md:w-20 h-16 md:h-20 rounded-full transition-all duration-500 ease-in-out">
+                    <span class="font-family:chinese text-3xl md:text-5xl text-lionRed transition-all duration-500 ease-in-out">廣建龍獅團</span>
                 </a>
                 <!-- 返回主页按钮 -->
                 <div class="flex items-center gap-4">
@@ -121,8 +132,58 @@
         </nav>
     </header>
 
+    <!-- 左侧导航栏 -->
+    <aside class="fixed left-0 top-24 bottom-0 w-52 bg-white/95 backdrop-blur-sm shadow-xl z-40 hidden lg:block overflow-y-auto rounded-r-xl border-r-2 border-lionGold/20 -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out" id="leftSidebar">
+        <div class="p-4">
+            <h3 class="font-chinese text-lg text-lionRed mb-3 border-b-2 border-lionGold/30 pb-2">导航</h3>
+            <nav class="space-y-2">
+                <div class="flex items-center gap-2 text-xs text-gray-500 font-reading mb-3 pb-2 border-b border-gray-200">
+                    <i class="fas fa-map-marker-alt text-lionGold"></i>
+                    <a href="../gjlst.html" class="hover:text-lionRed transition-colors">主页</a>
+                    <i class="fas fa-chevron-right text-xs"></i>
+                    <span>表演展示</span>
+                </div>
+                <a href="#achievements" class="flex items-center gap-2 text-sm text-gray-700 hover:text-lionRed transition-colors font-reading group">
+                    <i class="fas fa-trophy text-lionGold text-sm group-hover:text-lionRed transition-colors"></i>
+                    <span>荣誉成就</span>
+                </a>
+                <a href="#gallery" class="flex items-center gap-2 text-sm text-gray-700 hover:text-lionRed transition-colors font-reading group">
+                    <i class="fas fa-images text-lionGold text-sm group-hover:text-lionRed transition-colors"></i>
+                    <span>精彩瞬间</span>
+                </a>
+                <a href="#types" class="flex items-center gap-2 text-sm text-gray-700 hover:text-lionRed transition-colors font-reading group">
+                    <i class="fas fa-list text-lionGold text-sm group-hover:text-lionRed transition-colors"></i>
+                    <span>表演类型</span>
+                </a>
+                <div class="pt-2 mt-2 border-t border-gray-200">
+                    <div class="text-xs text-gray-400 font-reading mb-2">快速跳转</div>
+                </div>
+                <a href="../gjlst.html#home" class="flex items-center gap-2 text-sm text-gray-700 hover:text-lionRed transition-colors font-reading group">
+                    <i class="fas fa-home text-lionGold text-sm group-hover:text-lionRed transition-colors"></i>
+                    <span>首页</span>
+                </a>
+                <a href="../gjlst.html#school" class="flex items-center gap-2 text-sm text-gray-700 hover:text-lionRed transition-colors font-reading group">
+                    <i class="fas fa-school text-lionGold text-sm group-hover:text-lionRed transition-colors"></i>
+                    <span>学校简介</span>
+                </a>
+                <a href="../gjlst.html#team" class="flex items-center gap-2 text-sm text-gray-700 hover:text-lionRed transition-colors font-reading group">
+                    <i class="fas fa-users text-lionGold text-sm group-hover:text-lionRed transition-colors"></i>
+                    <span>关于我们</span>
+                </a>
+                <a href="../gjlst.html#services" class="flex items-center gap-2 text-sm text-gray-700 hover:text-lionRed transition-colors font-reading group">
+                    <i class="fas fa-star text-lionGold text-sm group-hover:text-lionRed transition-colors"></i>
+                    <span>能力展示</span>
+                </a>
+                <a href="../tdfc/team.html" class="flex items-center gap-2 text-sm text-gray-700 hover:text-lionRed transition-colors font-reading group">
+                    <i class="fas fa-user-friends text-lionGold text-sm group-hover:text-lionRed transition-colors"></i>
+                    <span>团队成员</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+
     <!-- 荣誉成就 -->
-    <section id="achievements" class="py-16 px-4 md:px-8">
+    <section id="achievements" class="py-16 px-4 md:px-8 transition-all duration-300">
         <div class="container mx-auto">
             <div class="text-center mb-12">
                 <h2 class="font-chinese text-5xl text-lionRed mb-6"><br>荣誉成就</h2>
@@ -195,7 +256,7 @@
     </section>
 
     <!-- 精彩瞬间 -->
-    <section id="gallery" class="py-16 px-4 md:px-8 bg-lionDark/5">
+    <section id="gallery" class="py-16 px-4 md:px-8 bg-lionDark/5 transition-all duration-300">
         <div class="container mx-auto">
             <div class="text-center mb-12">
                 <h2 class="font-chinese text-5xl text-lionRed mb-6">精彩瞬间</h2>
@@ -358,7 +419,7 @@
                 <div class="bg-white rounded-xl shadow-md overflow-hidden lion-hover">
                     <div class="flex flex-col md:flex-row-reverse">
                         <div class="md:w-1/2">
-                            <img src="../图片/lx.jpg" alt="团队训练" class="w-full h-full object-cover min-h-[300px]">
+                            <img src="../图片/rcxl.webp" alt="团队训练" class="w-full h-full object-cover min-h-[300px]">
                         </div>
                         <div class="md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
                             <div class="flex items-center gap-3 mb-4">
@@ -385,7 +446,7 @@
     </section>
 
     <!-- 更多精彩瞬间 -->
-    <section class="py-16 px-4 md:px-8 bg-lionDark/5">
+    <section class="py-16 px-4 md:px-8 bg-lionDark/5 transition-all duration-300">
         <div class="container mx-auto">
             <div class="text-center mb-12">
                 <h2 class="font-chinese text-5xl text-lionRed mb-6">更多精彩 · 辉煌历程</h2>
@@ -397,7 +458,7 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white rounded-xl shadow-md overflow-hidden lion-hover">
-                    <img src="../图片/ctjy.JPG" alt="醒狮表演" class="w-full h-48 object-cover">
+                    <img src="../图片/ctjy.webp" alt="醒狮表演" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-lg font-bold mb-2 text-lionRed">传统技艺</h3>
                         <p class="text-gray-600 text-sm font-reading">传承经典，创新发展</p>
@@ -405,7 +466,7 @@
                 </div>
 
                 <div class="bg-white rounded-xl shadow-md overflow-hidden lion-hover">
-                    <img src="../图片/SUBW7467.JPG" alt="舞台风采" class="w-full h-48 object-cover">
+                    <img src="../图片/wtml.png" alt="舞台风采" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-lg font-bold mb-2 text-lionRed">舞台魅力</h3>
                         <p class="text-gray-600 text-sm font-reading">技艺精湛，震撼人心</p>
@@ -432,7 +493,7 @@
     </section>
 
     <!-- 表演类型 -->
-    <section id="types" class="py-16 px-4 md:px-8">
+    <section id="types" class="py-16 px-4 md:px-8 transition-all duration-300">
         <div class="container mx-auto">
             <div class="text-center mb-12">
                 <h2 class="font-chinese text-5xl text-lionRed mb-6">表演类型</h2>
@@ -479,7 +540,7 @@
     </section>
 
     <!-- 预约表演 -->
-    <section id="booking" class="py-16 px-4 md:px-8 bg-lionDark text-white">
+    <section id="booking" class="py-16 px-4 md:px-8 bg-lionDark text-white transition-all duration-300">
         <div class="container mx-auto text-center">
             <h2 class="font-chinese text-5xl text-lionGold mb-6">预约表演</h2>
             <div class="w-32 h-1 bg-lionRed mx-auto mb-6"></div>
@@ -524,17 +585,29 @@
                 nav.classList.add('bg-white/90', 'backdrop-blur-sm');
                 nav.classList.remove('py-1');
                 nav.classList.add('py-0');
-                // 缩小Logo和文字
-                if (logoImg) logoImg.classList.replace('w-20', 'w-12'), logoImg.classList.replace('h-20', 'h-12');
-                if (logoText) logoText.classList.replace('text-5xl', 'text-3xl');
+                // 缩小Logo和文字（在移动端和桌面端都缩小）
+                if (logoImg) {
+                    logoImg.classList.remove('md:w-20', 'md:h-20');
+                    logoImg.classList.add('w-12', 'h-12');
+                }
+                if (logoText) {
+                    logoText.classList.remove('md:text-5xl');
+                    logoText.classList.add('text-2xl');
+                }
                 // 缩小返回按钮
                 if (returnBtn) returnBtn.classList.add('py-1', 'px-3');
             } else {
                 nav.classList.remove('bg-white/90', 'backdrop-blur-sm', 'py-0');
                 nav.classList.add('py-1');
                 // 恢复Logo和文字大小
-                if (logoImg) logoImg.classList.replace('w-12', 'w-20'), logoImg.classList.replace('h-12', 'h-20');
-                if (logoText) logoText.classList.replace('text-3xl', 'text-5xl');
+                if (logoImg) {
+                    logoImg.classList.remove('w-12', 'h-12');
+                    logoImg.classList.add('md:w-20', 'md:h-20');
+                }
+                if (logoText) {
+                    logoText.classList.remove('text-2xl');
+                    logoText.classList.add('md:text-5xl');
+                }
                 // 恢复返回按钮
                 if (returnBtn) returnBtn.classList.remove('py-1', 'px-3');
             }

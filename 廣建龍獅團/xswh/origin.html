@@ -95,8 +95,8 @@
             <div class="container mx-auto flex justify-between items-center relative z-10">
                 <!-- Logo -->
                 <a href="../gjlst.html" class="flex items-center gap-3">
-                    <img src="../图片/logo.jpg" alt="醒狮Logo" class="w-20 h-20 rounded-full transition-all duration-500 ease-in-out">
-                    <span class="font-family:chinese text-5xl text-lionRed transition-all duration-500 ease-in-out">廣建龍獅團</span>
+                    <img src="../图片/logo.jpg" alt="醒狮Logo" class="w-16 md:w-20 h-16 md:h-20 rounded-full transition-all duration-500 ease-in-out">
+                    <span class="font-family:chinese text-3xl md:text-5xl text-lionRed transition-all duration-500 ease-in-out">廣建龍獅團</span>
                 </a>
                 <!-- 返回主页按钮 -->
                 <div class="font-reading flex items-center gap-4">
@@ -109,10 +109,66 @@
         </nav>
     </header>
 
-   
+    <!-- 左侧导航栏 -->
+    <aside class="fixed left-0 top-24 bottom-0 w-52 bg-white/95 backdrop-blur-sm shadow-xl z-40 hidden lg:block overflow-y-auto rounded-r-xl border-r-2 border-lionGold/20 -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out" id="leftSidebar">
+        <div class="p-4">
+            <h3 class="font-chinese text-lg text-lionRed mb-3 border-b-2 border-lionGold/30 pb-2">导航</h3>
+            <nav class="space-y-2">
+                <div class="flex items-center gap-2 text-xs text-gray-500 font-reading mb-3 pb-2 border-b border-gray-200">
+                    <i class="fas fa-map-marker-alt text-lionGold"></i>
+                    <a href="../gjlst.html" class="hover:text-lionRed transition-colors">主页</a>
+                    <i class="fas fa-chevron-right text-xs"></i>
+                    <span>醒狮文化</span>
+                </div>
+                <a href="#origin" class="flex items-center gap-2 text-sm text-gray-700 hover:text-lionRed transition-colors font-reading group">
+                    <i class="fas fa-crown text-lionGold text-sm group-hover:text-lionRed transition-colors"></i>
+                    <span>起源传说</span>
+                </a>
+                <a href="#development" class="flex items-center gap-2 text-sm text-gray-700 hover:text-lionRed transition-colors font-reading group">
+                    <i class="fas fa-history text-lionGold text-sm group-hover:text-lionRed transition-colors"></i>
+                    <span>历史发展</span>
+                </a>
+                <a href="#culture" class="flex items-center gap-2 text-sm text-gray-700 hover:text-lionRed transition-colors font-reading group">
+                    <i class="fas fa-yin-yang text-lionGold text-sm group-hover:text-lionRed transition-colors"></i>
+                    <span>文化内涵</span>
+                </a>
+                <a href="#inheritance" class="flex items-center gap-2 text-sm text-gray-700 hover:text-lionRed transition-colors font-reading group">
+                    <i class="fas fa-hand-holding-heart text-lionGold text-sm group-hover:text-lionRed transition-colors"></i>
+                    <span>传承发展</span>
+                </a>
+                <div class="pt-2 mt-2 border-t border-gray-200">
+                    <div class="text-xs text-gray-400 font-reading mb-2">快速跳转</div>
+                </div>
+                <a href="../gjlst.html#home" class="flex items-center gap-2 text-sm text-gray-700 hover:text-lionRed transition-colors font-reading group">
+                    <i class="fas fa-home text-lionGold text-sm group-hover:text-lionRed transition-colors"></i>
+                    <span>首页</span>
+                </a>
+                <a href="../gjlst.html#school" class="flex items-center gap-2 text-sm text-gray-700 hover:text-lionRed transition-colors font-reading group">
+                    <i class="fas fa-school text-lionGold text-sm group-hover:text-lionRed transition-colors"></i>
+                    <span>学校简介</span>
+                </a>
+                <a href="../gjlst.html#team" class="flex items-center gap-2 text-sm text-gray-700 hover:text-lionRed transition-colors font-reading group">
+                    <i class="fas fa-users text-lionGold text-sm group-hover:text-lionRed transition-colors"></i>
+                    <span>关于我们</span>
+                </a>
+                <a href="../gjlst.html#services" class="flex items-center gap-2 text-sm text-gray-700 hover:text-lionRed transition-colors font-reading group">
+                    <i class="fas fa-star text-lionGold text-sm group-hover:text-lionRed transition-colors"></i>
+                    <span>能力展示</span>
+                </a>
+                <a href="../byzs/performance.html" class="flex items-center gap-2 text-sm text-gray-700 hover:text-lionRed transition-colors font-reading group">
+                    <i class="fas fa-theater-masks text-lionGold text-sm group-hover:text-lionRed transition-colors"></i>
+                    <span>表演展示</span>
+                </a>
+                <a href="../tdfc/team.html" class="flex items-center gap-2 text-sm text-gray-700 hover:text-lionRed transition-colors font-reading group">
+                    <i class="fas fa-user-friends text-lionGold text-sm group-hover:text-lionRed transition-colors"></i>
+                    <span>团队成员</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
 
     <!-- 起源传说 -->
-    <section id="origin" class="py-20 px-4 md:px-8">
+    <section id="origin" class="py-20 px-4 md:px-8 transition-all duration-300">
         <div class="container mx-auto max-w-4xl">
             <div class="text-center mb-16">
                 <h2 class="font-chinese text-5xl text-lionRed mb-6"><br>起源传说</h2>
@@ -158,7 +214,7 @@
     </section>
 
     <!-- 历史发展 -->
-    <section id="development" class="py-20 px-4 md:px-8 relative" style="background-image: url('../图片/ccbj.jpeg'); background-size: cover; background-position: center;">
+    <section id="development" class="py-20 px-4 md:px-8 relative transition-all duration-300" style="background-image: url('../图片/ccbj.jpeg'); background-size: cover; background-position: center;">
         <div class="absolute inset-0 bg-lionDark/5"></div>
         <div class="relative z-10">
         <div class="container mx-auto max-w-5xl">
@@ -248,7 +304,7 @@
     </section>
 
     <!-- 文化内涵 -->
-    <section id="culture" class="py-20 px-4 md:px-8">
+    <section id="culture" class="py-20 px-4 md:px-8 transition-all duration-300">
         <div class="container mx-auto max-w-4xl">
             <div class="text-center mb-16">
                 <h2 class="font-reading text-5xl text-lionRed mb-6">文化内涵</h2>
@@ -316,7 +372,7 @@
     </section>
 
     <!-- 传承发展 -->
-    <section id="inheritance" class="py-20 px-4 md:px-8 bg-lionDark/5">
+    <section id="inheritance" class="py-20 px-4 md:px-8 bg-lionDark/5 transition-all duration-300">
         <div class="container mx-auto max-w-4xl">
             <div class="text-center mb-16">
                 <h2 class="font-chinese text-5xl text-lionRed mb-6">传承发展</h2>
@@ -387,17 +443,29 @@
                 nav.classList.add('bg-white/90', 'backdrop-blur-sm');
                 nav.classList.remove('py-1');
                 nav.classList.add('py-0');
-                // 缩小Logo和文字
-                if (logoImg) logoImg.classList.replace('w-20', 'w-12'), logoImg.classList.replace('h-20', 'h-12');
-                if (logoText) logoText.classList.replace('text-5xl', 'text-3xl');
+                // 缩小Logo和文字（在移动端和桌面端都缩小）
+                if (logoImg) {
+                    logoImg.classList.remove('md:w-20', 'md:h-20');
+                    logoImg.classList.add('w-12', 'h-12');
+                }
+                if (logoText) {
+                    logoText.classList.remove('md:text-5xl');
+                    logoText.classList.add('text-2xl');
+                }
                 // 缩小返回按钮
                 if (returnBtn) returnBtn.classList.add('py-1', 'px-3');
             } else {
                 nav.classList.remove('bg-white/90', 'backdrop-blur-sm', 'py-0');
                 nav.classList.add('py-1');
                 // 恢复Logo和文字大小
-                if (logoImg) logoImg.classList.replace('w-12', 'w-20'), logoImg.classList.replace('h-12', 'h-20');
-                if (logoText) logoText.classList.replace('text-3xl', 'text-5xl');
+                if (logoImg) {
+                    logoImg.classList.remove('w-12', 'h-12');
+                    logoImg.classList.add('md:w-20', 'md:h-20');
+                }
+                if (logoText) {
+                    logoText.classList.remove('text-2xl');
+                    logoText.classList.add('md:text-5xl');
+                }
                 // 恢复返回按钮
                 if (returnBtn) returnBtn.classList.remove('py-1', 'px-3');
             }
